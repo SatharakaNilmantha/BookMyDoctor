@@ -1,14 +1,21 @@
 import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCalendarCheck, faUserMd, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 import './SideNav.css';
+import logo from '../Images/logo/logo1-removebg.png'
 
 
 function SideNav() {
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">Doctor App
-        
+      <div className="sidebar-logo">
+          <img src={logo} alt="logo remove background" className="logo" />
+          <div>
+             <h3 className="logo-brand ">BOOKMYDOCTOR</h3>
+             <p  className="logo-subtitle">Medical center</p>
+          </div>
       </div>
       <ul className="sidebar-links">
         <li>
