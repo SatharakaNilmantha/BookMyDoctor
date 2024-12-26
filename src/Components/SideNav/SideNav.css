@@ -10,7 +10,6 @@
     top: 0;
     left: 0;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
-    font-family: 'Roboto', sans-serif;
     z-index: 999;
   }
   
@@ -18,10 +17,9 @@
   .sidebar-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 20px 4px ;
     background-color: #f1f7fc; 
-    border-bottom: 2px solid #ddd; /* Subtle separation line */
+    border-bottom: 2px solid #dddddd8b; /* Subtle separation line */
   }
 
   .logo {
@@ -32,14 +30,14 @@
   .logo-brand {
     color: #007bff; /* Blue color for "BOOKMYDOCTOR" */
     font-weight: bold;
-    font-size: 21px;
+    font-size: 20px;
   }
   
   .logo-subtitle {
     color: #28a746b3; /* Green color for "Medical Center" */
     font-weight: bold;
     margin: 0;
-    font-size: 20px;
+    font-size: 19px;
     text-align: center;
     letter-spacing: 2px; /* Add spacing for a clean look */
   }
@@ -50,6 +48,7 @@
     padding: 0;
     margin: 0;
     flex-grow: 1;
+    margin-top: 40px;
   }
   
   .sidebar-links li {
@@ -83,6 +82,16 @@
   
   .sidebar-link:hover .sidebar-icon {
     color: #007bff; 
+  }
+  
+  .sidebar-link.active {
+    border-right: 2px solid #007bff; 
+    color: #007bff;
+    background-color: #f1f9ff;
+  }
+
+  .sidebar-link.active .sidebar-icon {
+    color: #007bff;/* Optional: Change icon color for active link */
   }
   
   /* Responsive Design */

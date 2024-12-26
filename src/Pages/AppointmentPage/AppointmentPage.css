@@ -1,0 +1,92 @@
+
+
+
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+      margin-left: 0; /* Full-width content for smaller screens */
+    }
+  
+  }
+
+  .action-table1 {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .action-table1:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .action-table1 h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f0f9ff; 
+    border-radius: 8px; 
+  }
+  
+  thead {
+    background-color: #0078d4; 
+  }
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd; 
+  }
+  
+  th {
+    color: white;
+    font-weight: bold;
+  }
+  
+  td {
+    color: #333; 
+  }
+  
+  
+  /* Accept Button */
+  .accept-btn {
+    background-color: #4caf50; 
+    color: white;
+    padding: 8px 12px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .accept-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Cancel Button */
+  .cancel-btn {
+    background-color: #f44336; 
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #e53935;
+  }
+  
