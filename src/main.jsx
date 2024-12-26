@@ -7,6 +7,7 @@ import App from './App.jsx'
 import Appointment from './Pages/AppointmentPage/AppointmentPage.jsx';
 import Doctors from './Pages/DoctorsPage/DoctorsPage.jsx';
 import DoctorProfile from './Pages/DoctorProfilePage/DoctorProfilePage.jsx';
+import AddDoctor from './Pages/AddDoctorPage/AddDoctorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/doctorprofile",
     element: <div><DoctorProfile/></div>,
+  },
+  {
+    path: "/adddoctor",
+    element: <div><AddDoctor/></div>,
   },
 ]);
 

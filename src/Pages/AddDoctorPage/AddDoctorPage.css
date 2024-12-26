@@ -1,9 +1,36 @@
-.profile-page {
-    max-width: 800px;
+/* Content1 Section */
+.app-container1 {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    height: auto;
+}
+
+.content1 {
+    flex-grow: 1;
+    margin-left: 250px; /* Sidebar width */
+    padding: 30px;
+    background-color: #f0f0f0; /* Light background */
+    color: #333; /* Text color */
+    max-width: 100%;
+    max-height: auto;
+   
+}
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .content1 {
+      margin-left: 0; /* Full-width content for smaller screens */
+    }
+  
+  }
+
+
+.profile-page1 {
+    max-width: 1000px;
     margin: 50px auto 30px auto;
     padding: 20px;
     animation: scale-up 0.5s ease-in-out;
-    
 }
 
 .profile-header-card,.profile-details-card {
@@ -68,7 +95,7 @@
     justify-content: space-between;
     margin-bottom: 12px;
     padding: 8px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .field-label {
@@ -90,56 +117,34 @@
     font-size: 14px;
 }
 
-.action-links {
-  display: grid;
-  grid-template-columns: auto auto;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.link {
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+.submit {
     font-size: 14px;
 
+    cursor: pointer; 
+
+    display: grid;
+    margin: 40px 100px 20px;
 }
 
-.edit-link {
-    background-color: #0078d4;
+
+  /* Accept Button */
+  .submitlink {
+    background-color: #4caf50; 
     color: white;
-}
-
-.edit-link:hover {
-    background-color: #005a9e;
-}
-
-.save-link {
-    background-color: #28a745;
-    color: white;
-}
-
-.save-link:hover {
-    background-color: #218838;
-}
-
-/* Style for the back button */
-.back-button {
-    color: rgb(3, 22, 162);
+    padding: 8px 12px;
+    text-align: center; 
     border: none;
-    font-size: 16px;
-    font-weight: 800;
     cursor: pointer;
-    text-decoration: underline;
-    background-color:white ;
-    text-align: left;
-}
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  .submitlink:hover {
+    background-color: #45a049;
+  }
 
-.back-button:hover {
-    color: #007bff;
-}
 
-/*----------------------animation--------------------------*/
+  /*----------------------animation--------------------------*/
 @keyframes scale-up {
     0% {
         transform: scale(0.8);

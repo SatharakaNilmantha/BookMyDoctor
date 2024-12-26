@@ -112,7 +112,7 @@ const handleBackClick = () => {
 
                     {/* Event Key Row */}
                     <div className="profile-row">
-                        <label className="field-label">Event Key</label>
+                        <label className="field-label">Department</label>
                         {isEditing ? (
                             <input type="text" className="editable-input" value={userData.eventKey} onChange={(e) => handleFieldChange("eventKey", e.target.value)} required/>
                         ) : (
