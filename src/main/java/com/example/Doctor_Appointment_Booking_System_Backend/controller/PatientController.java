@@ -1,12 +1,15 @@
 package com.example.Doctor_Appointment_Booking_System_Backend.controller;
 
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.DuplicateException;
+import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.PatientDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value="api/patient")
@@ -15,10 +18,7 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @GetMapping("getPatient")
-    public String getPatient(){
-        return"hi";
-    }
+
 
     @PostMapping("savePatient")
     public ResponseEntity<String> savePatient(@RequestBody PatientDto patientDto) {
@@ -32,4 +32,26 @@ public class PatientController {
         }
     }
 
+    @GetMapping("getPatient")
+    public ResponseEntity<List<PatientDto>> getAllPatient(){
+
+        List<PatientDto> patientlist = patientService.AllPatient();
+        return ResponseEntity.ok(patientlist);
+    }
+
+
+    @GetMapping("{patientId}")
+    public ResponseEntity<?> getPatientById(@PathVariable long patientId){
+
+        try {
+            PatientDto patientFromId = patientService.getPatientById(patientId);
+            return new ResponseEntity<>(patientFromId, HttpStatus.CREATED);
+        } catch (NotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        } catch (Exception e) {
+            return new ResponseEntity<>("An unexpected error occurred.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+    }
 }
