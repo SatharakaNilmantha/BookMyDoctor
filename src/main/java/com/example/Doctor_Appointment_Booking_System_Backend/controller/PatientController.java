@@ -52,6 +52,22 @@ public class PatientController {
             return new ResponseEntity<>("An unexpected error occurred.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-
     }
+
+    @PutMapping("{patientId}")
+    public ResponseEntity<?> updatePatient(@PathVariable long patientId, @RequestBody PatientDto patientDto) {
+        try {
+            String updateResponse = patientService.updatePatient(patientId, patientDto);
+            return new ResponseEntity<>(updateResponse, HttpStatus.OK); // Changed status to OK
+        } catch (RuntimeException e) {
+            // If the patient is not found, return a 404 Not Found status
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            // For any unexpected errors, return a 500 Internal Server Error
+            return new ResponseEntity<>("An unexpected error occurred.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 }

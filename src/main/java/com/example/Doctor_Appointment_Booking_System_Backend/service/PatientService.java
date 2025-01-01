@@ -59,4 +59,56 @@ public class PatientService {
         }
     }
 
+
+    public String updatePatient(long patientId, PatientDto patientDto) {
+        // Validate that the PatientDto and all required fields are not null or empty
+        if (patientDto == null) {
+            throw new IllegalArgumentException("Patient details cannot be null.");
+        }
+        if (patientDto.getFullName() == null || patientDto.getFullName().isEmpty()) {
+            throw new IllegalArgumentException("Full name is required.");
+        }
+        if (patientDto.getAddress() == null || patientDto.getAddress().isEmpty()) {
+            throw new IllegalArgumentException("Address is required.");
+        }
+        if (patientDto.getGender() == null || patientDto.getGender().isEmpty()) {
+            throw new IllegalArgumentException("Gender is required.");
+        }
+
+        if (patientDto.getPhoneNumber() == null || patientDto.getPhoneNumber().isEmpty()) {
+            throw new IllegalArgumentException("Phone number is required.");
+        }
+        if (patientDto.getDob() == null) {
+            throw new IllegalArgumentException("Date of birth is required.");
+        }
+
+        // Check if the patient exists in the repository
+        if (patientRepository.existsById(patientId)) {
+            // Perform the update using the repository method
+            int updatedRows = patientRepository.updatePatientById(
+                    patientId,
+                    patientDto.getFullName(),
+                    patientDto.getAddress(),
+                    patientDto.getGender(),
+                    patientDto.getImage(),
+                    patientDto.getPhoneNumber(),
+                    patientDto.getDob()
+            );
+
+            // Check if any rows were updated
+            if (updatedRows > 0) {
+                return "Patient updated successfully with ID " + patientId;
+            } else {
+                throw new RuntimeException("Failed to update patient with ID " + patientId);
+            }
+        } else {
+            // If the patient does not exist, throw an exception
+            throw new RuntimeException("Patient not found with ID " + patientId);
+        }
+    }
+
+
+
+
+
 }
