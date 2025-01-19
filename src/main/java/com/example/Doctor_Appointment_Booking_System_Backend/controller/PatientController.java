@@ -3,7 +3,7 @@ package com.example.Doctor_Appointment_Booking_System_Backend.controller;
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.DuplicateException;
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.PatientDto;
-import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientService;
+import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +16,14 @@ import java.util.List;
 public class PatientController {
 
     @Autowired
-    private PatientService patientService;
+    private PatientServices patientServices;
 
 
 
     @PostMapping("savePatient")
     public ResponseEntity<String> savePatient(@RequestBody PatientDto patientDto) {
         try {
-            String response = patientService.patientSaved(patientDto);
+            String response = patientServices.patientSaved(patientDto);
             return new ResponseEntity<>(response, HttpStatus.CREATED);
         } catch (DuplicateException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
@@ -35,7 +35,7 @@ public class PatientController {
     @GetMapping("getPatient")
     public ResponseEntity<List<PatientDto>> getAllPatient(){
 
-        List<PatientDto> patientlist = patientService.AllPatient();
+        List<PatientDto> patientlist = patientServices.AllPatient();
         return ResponseEntity.ok(patientlist);
     }
 
@@ -44,7 +44,7 @@ public class PatientController {
     public ResponseEntity<?> getPatientById(@PathVariable long patientId){
 
         try {
-            PatientDto patientFromId = patientService.getPatientById(patientId);
+            PatientDto patientFromId = patientServices.getPatientById(patientId);
             return new ResponseEntity<>(patientFromId, HttpStatus.CREATED);
         } catch (NotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
@@ -57,7 +57,7 @@ public class PatientController {
     @PutMapping("{patientId}")
     public ResponseEntity<?> updatePatient(@PathVariable long patientId, @RequestBody PatientDto patientDto) {
         try {
-            String updateResponse = patientService.updatePatient(patientId, patientDto);
+            String updateResponse = patientServices.updatePatient(patientId, patientDto);
             return new ResponseEntity<>(updateResponse, HttpStatus.OK); // Changed status to OK
         } catch (RuntimeException e) {
             // If the patient is not found, return a 404 Not Found status

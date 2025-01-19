@@ -1,10 +1,11 @@
-package com.example.Doctor_Appointment_Booking_System_Backend.service;
+package com.example.Doctor_Appointment_Booking_System_Backend.service.serviceIMPL;
 
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.DuplicateException;
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.PatientDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.entity.Patient;
 import com.example.Doctor_Appointment_Booking_System_Backend.repository.PatientRepository;
+import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientServices;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PatientService {
+public class PatientService implements PatientServices {
 
     @Autowired
     private PatientRepository patientRepository;
