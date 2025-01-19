@@ -8,51 +8,48 @@ import javax.persistence.*;
 
 
 @Data
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Doctor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long DoctorId;
+    private long doctorId;
 
     @Lob
-    private byte[] image; // Changed from Byte to byte[] for storing images
+    private byte[] image; // To store images as byte array
 
-    @Column(nullable = false) // Added a constraint to ensure fullName is not null
+    @Column(nullable = false)
     private String fullName;
 
-    @Column(nullable = false) // Added a constraint to ensure phoneNumber is not null
+    @Column(nullable = false)
     private String phoneNumber;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
+    @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
-    private String department ;
+    @Column(nullable = false)
+    private String department;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
-    private String title ;
+    @Column(nullable = false)
+    private String title;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
-    private String degree ;
+    @Column(nullable = false)
+    private String degree;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
-    private String description ;
+    @Column(nullable = false)
+    private String description;
 
+    @Column(nullable = false)
+    private double fees;
 
-    @Column(nullable = false) // Added a constraint to ensure address is not null
-    private double fees ;
-
-    @Enumerated(EnumType.STRING) // Enum values stored as strings in the database
-    @Column(nullable = false) // Added a constraint to ensure gender is not null
-    private Doctor.Gender gender;
-
-
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Gender gender;
 
     // Enum for Gender
     public enum Gender {
         Male, Female, Other
     }
 }
+

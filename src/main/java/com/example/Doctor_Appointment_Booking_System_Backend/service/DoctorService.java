@@ -11,15 +11,28 @@ import org.springframework.stereotype.Service;
 public class DoctorService {
 
     @Autowired
-    private ModelMapper modelMapper ;
+    private DoctorRepository doctorRepository;
+
     @Autowired
-    private DoctorRepository doctorRepository ;
+    private ModelMapper modelMapper;
 
+    public String savedDoctor(DoctorDto doctorDto) {
 
-    public String saveDoctor (DoctorDto doctorDto){
+        // Check if doctor with the same full_name, phone_number, department, and title already exists
+        boolean exists = doctorRepository.existsByFullNameAndPhoneNumberAndDepartmentAndTitle(
+                doctorDto.getFullName(),
+                doctorDto.getPhoneNumber(),
+                doctorDto.getDepartment(),
+                doctorDto.getTitle()
+        );
 
+        if (exists) {
+            return "Doctor with the same details already exists.";
+        }
+
+        // Save the doctor if not already exists
         doctorRepository.save(modelMapper.map(doctorDto, Doctor.class));
-        return "Doctor Details Saved Successfully";
+        return "Doctor saved successfully  ";
     }
 
 

@@ -4,22 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class DoctorDto {
-
-    private long DoctorId;
-    private String image;
-    private String fullName;
-    private String gender;
-    private String phoneNumber;
+    private long doctorId;
     private String address;
-    private String department ;
-    private String title ;
-    private String degree ;
-    private String description ;
-    private double fees ;
-
+    private String degree;
+    private String department;
+    private String description;
+    private double fees;
+    private String fullName;
+    private String gender; // Kept as String to allow flexibility in DTO
+    private String image; // Base64 encoded string for easier transmission
+    private String phoneNumber;
+    private String title;
 }
+
