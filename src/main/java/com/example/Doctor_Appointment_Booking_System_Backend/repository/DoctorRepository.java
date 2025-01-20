@@ -23,4 +23,10 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     int updateDoctorById(long doctorId, String fullName, String address, String gender, String image, String phoneNumber, String degree, String department, String title, String description, double fees);
 
 
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM doctor WHERE doctor_id=?1", nativeQuery = true)
+    int deleteDoctorById(long doctorId);
+
+
 }

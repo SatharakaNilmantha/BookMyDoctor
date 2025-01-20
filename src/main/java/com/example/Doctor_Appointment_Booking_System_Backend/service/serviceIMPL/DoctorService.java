@@ -118,4 +118,25 @@ public class DoctorService implements DoctorServices {
     }
 
 
+
+    public String deleteDoctorById(long doctorId) {
+
+        try {
+            // Assuming `bookRepository.deleteBookByIdBook(bookId)` returns the number of affected rows
+            int deletedRows = doctorRepository.deleteDoctorById(doctorId);
+
+            if (deletedRows == 0) {
+                // If no rows were deleted, throw custom exception
+                throw new NotFoundException("Doctor with ID " + doctorId + " not found or couldn't be deleted.");
+            }
+
+            return "Deleted successfully " + doctorId;
+
+        } catch (NotFoundException e) {
+            throw e;
+        }
+
+    }
+
+
 }
