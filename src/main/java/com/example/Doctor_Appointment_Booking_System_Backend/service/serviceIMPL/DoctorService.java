@@ -1,6 +1,7 @@
 package com.example.Doctor_Appointment_Booking_System_Backend.service.serviceIMPL;
 
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
+import com.example.Doctor_Appointment_Booking_System_Backend.dto.AdminDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.DoctorDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.entity.Doctor;
 import com.example.Doctor_Appointment_Booking_System_Backend.repository.DoctorRepository;
@@ -43,6 +44,9 @@ public class DoctorService implements DoctorServices {
 
     public List<DoctorDto> AllDoctor(){
         List doctorList = doctorRepository.findAll();
+        if (doctorList.isEmpty()) {
+            throw new NotFoundException("No Doctors found in the database.");
+        }
         return modelMapper.map(doctorList , new TypeToken<List<DoctorDto>>(){}.getType());
     }
 

@@ -24,9 +24,15 @@ public class DoctorController {
     }
 
     @GetMapping("getDoctor")
-    public ResponseEntity<List<DoctorDto>> getAllDoctor(){
-        List<DoctorDto> doctorlist = doctorServices.AllDoctor();
-        return ResponseEntity.ok(doctorlist);
+    public ResponseEntity<?> getAllDoctor(){
+
+        try {
+            List<DoctorDto> doctorlist = doctorServices.AllDoctor();
+            return ResponseEntity.ok(doctorlist);
+        }catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+
     }
 
 
@@ -63,21 +69,14 @@ public class DoctorController {
     public ResponseEntity<String> deleteDoctorById(@PathVariable long doctorId)
     {
 
-        try
-        {
+        try {
 
             String confirmResponse = doctorServices.deleteDoctorById(doctorId);
             return ResponseEntity.ok(confirmResponse);
-        }
-
-        catch (NotFoundException e)
-        {
+        } catch (NotFoundException e) {
             // Handle NotFoundException and return HTTP 404 Not Found
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             // Handle any other exceptions and return HTTP 500 Internal Server Error
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An unexpected error occurred: " + e.getMessage());
