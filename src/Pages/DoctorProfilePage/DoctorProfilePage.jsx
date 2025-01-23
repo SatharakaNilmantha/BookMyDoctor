@@ -82,6 +82,7 @@ const handleBackClick = () => {
 
                         <img className="profile-photo" src={profilePhoto} alt="Profile" /> 
 
+                        
                         <div className="profile-info">
                             <h2>Personalize Your Account</h2>
                             <p>Your profile photo will appear on apps and devices that use your account.</p>
