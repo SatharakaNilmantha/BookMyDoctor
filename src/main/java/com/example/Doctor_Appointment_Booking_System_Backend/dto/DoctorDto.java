@@ -16,7 +16,7 @@ public class DoctorDto {
     private double fees;
     private String fullName;
     private String gender; // Kept as String to allow flexibility in DTO
-    private String image; // Base64 encoded string for easier transmission
+    private byte[] image; // Include image if necessary for the front-end
     private String phoneNumber;
     private String title;
 }
