@@ -4,15 +4,16 @@ import com.example.Doctor_Appointment_Booking_System_Backend.entity.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 
+@Repository
 public interface PatientRepository extends JpaRepository <Patient , Long> {
 
     boolean existsByEmail(String email);// Check if a patient with the given email exists
-    boolean existsByUserName(String userName);// Check if a patient with the given username exists
 
     @Query(value="SELECT* FROM patient WHERE patient_id=?1 " ,nativeQuery = true)
     Patient getPatientById(long patientId);
@@ -23,4 +24,8 @@ public interface PatientRepository extends JpaRepository <Patient , Long> {
     int updatePatientById(long patientId, String fullName, String address, String gender, String phoneNumber, String number, LocalDate dob);
 
 
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE patient SET password = ?2 WHERE patient_id = ?1", nativeQuery = true)
+    int updatePatientPassword(long patientId, String password);
 }

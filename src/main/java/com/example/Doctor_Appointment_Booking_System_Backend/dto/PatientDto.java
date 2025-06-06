@@ -19,7 +19,7 @@ public class PatientDto {
     private LocalDate dob;
     private int age;
     private String email;
-    private String userName;
     private String password;
-    private String image; // Include image if necessary for the front-end
+    private String currentPassword;
+    private byte[] image; // Include image if necessary for the front-end
 }
