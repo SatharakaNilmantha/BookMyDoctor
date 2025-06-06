@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
 @Data
 @Entity
 @NoArgsConstructor
@@ -15,8 +14,8 @@ import java.time.LocalDateTime;
 public class Appointment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  long appointmentId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long appointmentId;
 
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
@@ -27,9 +26,8 @@ public class Appointment {
     private Doctor doctor;
 
     @Column(nullable = false)
-    private LocalDateTime appointmentDate;
+    private LocalDateTime appointmentDateTime;
 
-
-
-
+    @Column(nullable = false)
+    private String status ;
 }

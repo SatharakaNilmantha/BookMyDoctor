@@ -19,8 +19,8 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE doctor SET full_name = ?2, address = ?3, gender = ?4, image = ?5, phone_number = ?6, degree = ?7, department = ?8, title = ?9, description = ?10, fees = ?11 WHERE doctor_id = ?1", nativeQuery = true)
-    int updateDoctorById(long doctorId, String fullName, String address, String gender, String image, String phoneNumber, String degree, String department, String title, String description, double fees);
+    @Query(value = "UPDATE doctor SET full_name = ?2, address = ?3, gender = ?4, phone_number = ?5, degree = ?6, department = ?7, title = ?8, description = ?9, fees = ?10 WHERE doctor_id = ?1", nativeQuery = true)
+    int updateDoctorById(long doctorId, String fullName, String address, String gender, String phoneNumber, String degree, String department, String title, String description, double fees);
 
 
     @Modifying

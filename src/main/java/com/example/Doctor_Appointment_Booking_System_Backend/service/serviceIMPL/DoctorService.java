@@ -4,14 +4,20 @@ import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundE
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.AdminDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.DoctorDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.entity.Doctor;
+import com.example.Doctor_Appointment_Booking_System_Backend.entity.Patient;
 import com.example.Doctor_Appointment_Booking_System_Backend.repository.DoctorRepository;
 import com.example.Doctor_Appointment_Booking_System_Backend.service.DoctorServices;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.sql.Blob;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DoctorService implements DoctorServices {
@@ -22,25 +28,42 @@ public class DoctorService implements DoctorServices {
     @Autowired
     private ModelMapper modelMapper;
 
-    public String savedDoctor(DoctorDto doctorDto) {
+    // save doctor details
+    public String savedDoctor(DoctorDto doctorDto, MultipartFile image) {
+        try {
+            // Check if doctor with the same full_name, phone_number, department, and title already exists
+            boolean exists = doctorRepository.existsByFullNameAndPhoneNumberAndDepartmentAndTitle(
+                    doctorDto.getFullName(),
+                    doctorDto.getPhoneNumber(),
+                    doctorDto.getDepartment(),
+                    doctorDto.getTitle()
+            );
 
-        // Check if doctor with the same full_name, phone_number, department, and title already exists
-        boolean exists = doctorRepository.existsByFullNameAndPhoneNumberAndDepartmentAndTitle(
-                doctorDto.getFullName(),
-                doctorDto.getPhoneNumber(),
-                doctorDto.getDepartment(),
-                doctorDto.getTitle()
-        );
+            if (exists) {
+                return "Doctor with the same details already exists.";
+            }
 
-        if (exists) {
-            return "Doctor with the same details already exists.";
+            // Map DTO to entity
+            Doctor doctor = modelMapper.map(doctorDto, Doctor.class);
+            doctor.setGender(Doctor.Gender.valueOf(doctorDto.getGender()));
+
+            // Handle image if provided
+            if (image != null && !image.isEmpty()) {
+                try {
+                    Blob imageBlob = new SerialBlob(image.getBytes());
+                    doctor.setImage(imageBlob);
+                } catch (Exception e) {
+                    return "Failed to process image: " + e.getMessage();
+                }
+            }
+
+            doctorRepository.save(doctor);
+            return "Doctor saved successfully";
+
+        } catch (Exception e) {
+            return "An error occurred while saving the doctor: " + e.getMessage();
         }
-
-        // Save the doctor if not already exists
-        doctorRepository.save(modelMapper.map(doctorDto, Doctor.class));
-        return "Doctor saved successfully  ";
     }
-
 
     public List<DoctorDto> AllDoctor(){
         List doctorList = doctorRepository.findAll();
@@ -62,6 +85,46 @@ public class DoctorService implements DoctorServices {
     }
 
 
+    // get  doctor Image using doctorId
+    public byte[] getDoctorImageAsBytes(long id) {
+        Optional<Doctor> optionalUser = doctorRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            Doctor doctor = optionalUser.get();
+            try {
+                return doctor.getImage().getBytes(1, (int) doctor.getImage().length());
+            } catch (Exception e) {
+                throw new RuntimeException("Error reading photo bytes: " + e.getMessage());
+            }
+        } else {
+            throw new NotFoundException("User not found with ID: " + id);
+        }
+    }
+
+
+    // update  doctor image using doctorId
+    public String updateImage(Long id, MultipartFile file) {
+
+        Optional<Doctor> optionalImage = doctorRepository.findById(id);
+
+        if (!optionalImage.isPresent()) {
+            throw new NotFoundException("Image not found with ID: " + id);
+        }
+
+        try {
+            Doctor image = optionalImage.get();
+            byte[] bytes = file.getBytes();
+            Blob blob = new SerialBlob(bytes);
+            image.setImage(blob);
+            doctorRepository.save(image);
+            return "Image updated successfully";
+        } catch (Exception e) {
+            throw new RuntimeException("Error updating image: " + e.getMessage());
+        }
+    }
+
+
+
+    // update  doctor details using doctorId
     public String updateDoctor(long doctorId, DoctorDto doctorDto) {
         // Validate that the DoctorDto and all required fields are not null or empty
         if (doctorDto == null) {
@@ -104,7 +167,6 @@ public class DoctorService implements DoctorServices {
                 doctorDto.getFullName(),
                 doctorDto.getAddress(),
                 doctorDto.getGender(),
-                doctorDto.getImage(),
                 doctorDto.getPhoneNumber(),
                 doctorDto.getDegree(),
                 doctorDto.getDepartment(),

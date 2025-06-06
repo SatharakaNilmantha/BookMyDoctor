@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 
 @Data
@@ -17,7 +18,7 @@ public class Doctor {
     private long doctorId;
 
     @Lob
-    private byte[] image; // To store images as byte array
+    private Blob image; // Changed from Byte to byte[] for storing images
 
     @Column(nullable = false)
     private String fullName;
