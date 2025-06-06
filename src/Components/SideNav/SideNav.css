@@ -1,115 +1,252 @@
-/* General sidebar styling */
 .sidebar {
-    height: 100vh;
-    width: 250px;
-    background-color: #ffffff; /* White background */
-    color: #333; /* Dark text for readability */
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
-    z-index: 999;
+  height: 100vh;
+  width: 250px;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  padding: 20px 4px;
+  background-color: #f1f7fc;
+  border-bottom: 2px solid #dddddd8b;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+.logo-brand {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo-subtitle {
+  color: #28a746b3;
+  font-weight: bold;
+  margin: 0;
+  font-size: 19px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  margin-top: 40px;
+}
+
+.sidebar-links li {
+  margin: 15px 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #f1f9ff;
+  border-left: 5px solid #007bff;
+  color: #007bff;
+}
+
+.sidebar-icon {
+  margin-right: 15px;
+  font-size: 1.3rem;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.sidebar-link:hover .sidebar-icon {
+  color: #007bff;
+}
+
+.sidebar-link.active {
+  border-right: 2px solid #007bff;
+  color: #007bff;
+  background-color: #f1f9ff;
+}
+
+.sidebar-link.active .sidebar-icon {
+  color: #007bff;
+}
+
+.sidebar-profile {
+  margin-top: auto;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.sidebar-profile:hover {
+  background-color: #eaf4ff;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.profileinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.dropdown-icon {
+  font-size: 0.8rem;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Professional dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 8px 0;
+  z-index: 1100;
+  overflow: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f8ff; /* subtle light blue highlight */
+}
+
+.dropdown-menu a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  color: #007bff;
+}
+
+
+/* Style logout link red */
+.logout-link a {
+  color: #dc3545; /* Bootstrap’s danger red */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.logout-link a:hover {
+  color: #a71d2a;
+}
+
+.logout-link a svg {
+  /* Icon color matches text */
+  color: #dc3545;
+  font-size: 1.1rem;
+}
+
+
+/* Dropdown arrow pointing down */
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  transform: rotate(45deg);
+  z-index: 1101;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
   }
-  
-  /* Logo Section */
+
   .sidebar-logo {
-    display: flex;
-    align-items: center;
-    padding: 20px 4px ;
-    background-color: #f1f7fc; 
-    border-bottom: 2px solid #dddddd8b; /* Subtle separation line */
+    font-size: 1.8rem;
   }
 
-  .logo {
-    width: 70px;
-    height: 70px;
-  }
-
-  .logo-brand {
-    color: #007bff; /* Blue color for "BOOKMYDOCTOR" */
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .logo-subtitle {
-    color: #28a746b3; /* Green color for "Medical Center" */
-    font-weight: bold;
-    margin: 0;
-    font-size: 19px;
-    text-align: center;
-    letter-spacing: 2px; /* Add spacing for a clean look */
-  }
-  
-  /* Links Container */
-  .sidebar-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-    margin-top: 40px;
-  }
-  
-  .sidebar-links li {
-    margin: 15px 0;
-  }
-  
-  /* Individual Link */
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebar-link:hover {
-    background-color: #f1f9ff;
-    border-left: 5px solid #007bff; 
-    color: #007bff;
-  }
-  
   .sidebar-icon {
-    margin-right: 15px;
-    font-size: 1.3rem;
-    color: #666;
-    transition: color 0.3s ease;
-  }
-  
-  .sidebar-link:hover .sidebar-icon {
-    color: #007bff; 
-  }
-  
-  .sidebar-link.active {
-    border-right: 2px solid #007bff; 
-    color: #007bff;
-    background-color: #f1f9ff;
+    font-size: 1.1rem;
   }
 
-  .sidebar-link.active .sidebar-icon {
-    color: #007bff;/* Optional: Change icon color for active link */
+  .sidebar-link {
+    font-size: 1rem;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 220px; 
-    }
-  
-    .sidebar-logo {
-      font-size: 1.8rem;
-    }
-  
-    .sidebar-icon {
-      font-size: 1.1rem;
-    }
-  
-    .sidebar-link {
-      font-size: 1rem;
-    }
-  }
-  
+}
