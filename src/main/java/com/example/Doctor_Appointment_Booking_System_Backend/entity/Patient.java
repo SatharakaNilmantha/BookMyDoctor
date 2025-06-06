@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.time.LocalDate;
 
 
@@ -19,7 +20,7 @@ public class Patient {
     private long patientId;
 
     @Lob
-    private byte[] image; // Changed from Byte to byte[] for storing images
+    private Blob image; // Changed from Byte to byte[] for storing images
 
     @Column(nullable = false) // Added a constraint to ensure fullName is not null
     private String fullName;
@@ -43,8 +44,6 @@ public class Patient {
     @Column(unique = true, nullable = false) // Email must be unique and not null
     private String email;
 
-    @Column(unique = true, nullable = false) // Added a unique constraint for username
-    private String userName;
 
     @Column(nullable = false) // Password must not be null
     private String password;
