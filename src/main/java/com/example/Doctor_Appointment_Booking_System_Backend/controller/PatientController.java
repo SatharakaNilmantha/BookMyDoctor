@@ -2,6 +2,7 @@ package com.example.Doctor_Appointment_Booking_System_Backend.controller;
 
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.DuplicateException;
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
+import com.example.Doctor_Appointment_Booking_System_Backend.dto.LoginRequest;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.PatientDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientServices;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value="api/patient")
 public class PatientController {
 
@@ -55,7 +57,6 @@ public class PatientController {
         List<PatientDto> patientlist = patientServices.AllPatient();
         return ResponseEntity.ok(patientlist);
     }
-
 
 
     // get  patient details using patientId
@@ -133,4 +134,22 @@ public class PatientController {
             return new ResponseEntity<>("An unexpected error occurred.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginPatient(@RequestBody LoginRequest loginRequest) {
+        try {
+            String responseMessage = patientServices.loginPatient(loginRequest.getEmail(), loginRequest.getPassword());
+            return new ResponseEntity<>(responseMessage, HttpStatus.OK);
+        } catch (NotFoundException e) {
+            // Handle invalid email or password mismatch
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }catch (Exception e) {
+            // Catch any other unexpected error
+            return new ResponseEntity<>("An unexpected error occurred: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

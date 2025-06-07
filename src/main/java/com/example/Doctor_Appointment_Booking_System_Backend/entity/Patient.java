@@ -38,8 +38,6 @@ public class Patient {
     @Column(nullable = false) // Added a constraint to ensure dob is not null
     private LocalDate dob;
 
-    @Column(nullable = false) // Added a constraint to ensure age is not null
-    private int age;
 
     @Column(unique = true, nullable = false) // Email must be unique and not null
     private String email;
