@@ -14,4 +14,6 @@ public interface PatientServices {
     public  String updatePatientPassword(long patientId, PatientDto patientDto);
 
     String updateImage(Long id, MultipartFile file);
+
+    public String loginPatient(String email, String password);
 }

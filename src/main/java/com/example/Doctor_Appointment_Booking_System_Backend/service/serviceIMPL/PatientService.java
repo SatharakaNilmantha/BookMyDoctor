@@ -125,7 +125,6 @@ public class PatientService implements PatientServices {
                     patientDto.getFullName(),
                     patientDto.getAddress(),
                     patientDto.getGender(),
-                    Arrays.toString(patientDto.getImage()),
                     patientDto.getPhoneNumber(),
                     patientDto.getDob()
             );
@@ -200,6 +199,23 @@ public class PatientService implements PatientServices {
         } else {
             throw new RuntimeException("Patient not found with ID " + patientId);
         }
+    }
+
+
+
+    public String loginPatient(String email, String password) {
+        Patient patient = patientRepository.findByEmail(email);
+
+        if (patient == null) {
+            throw new NotFoundException("No patient found with this email.");
+        }
+
+        if (!patient.getPassword().equals(password)) {
+            throw new IllegalArgumentException("Incorrect password.");
+        }
+
+        // Constructing JSON manually as a string
+        return String.format("{\"message\": \"Login successful\", \"patientId\": %d}", patient.getPatientId());
     }
 
 

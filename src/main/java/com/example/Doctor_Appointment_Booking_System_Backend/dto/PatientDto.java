@@ -17,7 +17,6 @@ public class PatientDto {
     private String address;
     private String gender; // Use String to simplify gender representation in the DTO
     private LocalDate dob;
-    private int age;
     private String email;
     private String password;
     private String currentPassword;
