@@ -49,7 +49,7 @@ public class AppointmentService implements AppointmentServices {
         Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(() -> new NotFoundException("Doctor not found"));
 
         // Check if patient exists
-        Patient patient = patientRepository.findById(patientId).orElseThrow(() -> new NotFoundException("Patient not found"));
+        Patient patient = patientRepository.findById(patientId).orElseThrow(() -> new NotFoundException("Authentication required. Please log in to continue."));
 
         // Save the new appointment
         Appointment appointment = modelMapper.map(appointmentDto, Appointment.class);
