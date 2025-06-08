@@ -131,13 +131,13 @@ public class PatientService implements PatientServices {
 
             // Check if any rows were updated
             if (updatedRows > 0) {
-                return "Patient updated successfully with ID " + patientId;
+                return "Patient updated successfully " ;
             } else {
-                throw new RuntimeException("Failed to update patient with ID " + patientId);
+                throw new RuntimeException("Failed to update patient " );
             }
         } else {
             // If the patient does not exist, throw an exception
-            throw new RuntimeException("Patient not found with ID " + patientId);
+            throw new RuntimeException("Patient not found  " );
         }
     }
 
@@ -147,7 +147,7 @@ public class PatientService implements PatientServices {
         Optional<Patient> optionalImage = patientRepository.findById(id);
 
         if (!optionalImage.isPresent()) {
-            throw new NotFoundException("Image not found with ID: " + id);
+            throw new NotFoundException("Image not found ");
         }
 
         try {
@@ -194,10 +194,10 @@ public class PatientService implements PatientServices {
             if (updatedRows > 0) {
                 return "Password updated successfully " ;
             } else {
-                throw new RuntimeException("Failed to update password for Patient ID " + patientId);
+                throw new RuntimeException("Failed to update password for Patient " );
             }
         } else {
-            throw new RuntimeException("Patient not found with ID " + patientId);
+            throw new RuntimeException("Patient not found  " );
         }
     }
 
