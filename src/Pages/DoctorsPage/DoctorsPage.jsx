@@ -91,10 +91,10 @@ function DoctorsPage() {
          <div >
             <Tabs defaultActiveKey="All_Department" id="fill-tab-example"  fill>
             <Tab eventKey="All_Department" title="All Department">
-                <Row xs={1} md={2} className="cards1 ">
+                <Row xs={1} md={2} className="doctors-cards">
                 {Doctors.map((doctor) => (
                     <Col key={doctor.Name} >
-                    <Card className="card1">
+                    <Card className="doctors-cards1">
                         <Card.Img src={doctor.imgSrc} className="image" />
                         <Card.Body style={{ textAlign: "left" }}>
                         <h4 style={{ margin: "0px",padding:"0px" ,fontWeight: 800 ,color: "#2c4964" }}>{doctor.Name}</h4>
@@ -114,10 +114,10 @@ function DoctorsPage() {
 
             {["Dental", "Cardialogy", "Neurology", "Pediatrics"].map((department) => (
             <Tab key={department} eventKey={department} title={department}>
-                <Row xs={1} md={2} className="cards1">
+                <Row xs={1} md={2} className="doctors-cards">
                     {Doctors.filter((doctor) => doctor.eventKey === department).map((doctor) => (
                     <Col key={doctor.Name}>
-                        <Card className="card1">
+                        <Card className="doctors-cards1">
                         <Card.Img src={doctor.imgSrc} className="image" />
                         <Card.Body style={{ textAlign: "left" }}>
                         <h4 style={{ margin: "0px",padding:"0px" ,fontWeight: 800 ,color: "#2c4964" }}>{doctor.Name}</h4>

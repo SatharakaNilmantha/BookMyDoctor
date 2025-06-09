@@ -48,7 +48,7 @@ function AppointmentPage() {
           <div className="action-table1">
             <h3>All Appointments</h3>
             <table>
-                <thead>
+                <thead className='table-header'>
                 <tr>
                     <th>Patient Name</th>
                     <th>Patient Age</th>
@@ -58,7 +58,7 @@ function AppointmentPage() {
                     <th>Actions</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className='table-body'>
                 {appointments.map((appointment) => (
                     <tr key={appointment.id}>
                     <td>{appointment.patientName}</td>

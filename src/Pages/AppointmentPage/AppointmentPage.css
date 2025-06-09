@@ -29,14 +29,15 @@
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: scale-up 0.5s ease-in-out;
   }
   
   .action-table1:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54);
+
   }
   
   
@@ -46,17 +47,31 @@
     color: #333;
   }
   
-  /* Table Styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #f0f9ff; 
-    border-radius: 8px; 
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f0f9ff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+
   
-  thead {
-    background-color: #0078d4; 
-  }
+.table-header {
+    background: #17ead9;
+    background: -webkit-linear-gradient( 45deg ,  #4863ea, #68daf6)!important;
+    background: linear-gradient( 45deg, #4b63db, #6fcded)!important;
+}
+
+.table-body {
+  background: linear-gradient(45deg, #e0f2fe, #f0f9ff) !important; /* soft blue gradient for body */
+  color: #1e3a8a; /* dark blue text for readability */
+}
+
   
   th,
   td {
@@ -74,45 +89,86 @@
     color: #333; 
   }
   
-  
-  /* Accept Button */
-  .accept-btn {
-    background-color: #4caf50; 
-    color: white;
-    padding: 8px 12px;
-    margin-right: 8px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .accept-btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Cancel Button */
-  .cancel-btn {
-    background-color: #f44336; 
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #e53935;
-  }
-  
-  @keyframes scale-up {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+/* Accept Button */ 
+.accept-btn {
+  background: linear-gradient(to bottom, #4ede39 0%, #2ba321 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
 }
+
+/* Subtle gloss with matching radius */
+.accept-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+  border-top-left-radius: 4px;  /* match reduced radius */
+  border-top-right-radius: 4px; /* match reduced radius */
+  z-index: 1;
+}
+
+/* Text above shine */
+.accept-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.accept-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Cancel Button */
+.cancel-btn {
+  background: linear-gradient(to bottom, #ff5f5f 0%, #d62828 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+}
+
+/* Gloss shine */
+.cancel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  z-index: 1;
+}
+
+/* Text above shine */
+.cancel-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.cancel-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
