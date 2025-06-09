@@ -165,7 +165,8 @@
   padding: 10px;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: scale-up 0.5s ease-in-out;
   
 
@@ -175,9 +176,24 @@
 
 .search-bar input {
   flex-grow: 1;
-  padding: 8px;
+  padding: 12px 16px;
   font-size: 16px;
+  border: 1px solid #d1d5db; /* Light gray */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition:  background-color 0.3s ease,   border-color 0.3s ease,  box-shadow 0.3s ease;
 }
+
+/* Hover */
+.search-bar input:hover {
+  background-color: #fff;
+  border-color: #46bcfca8;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
 
 /*------------------------------------teable Section------------------------------ */
 
@@ -250,23 +266,88 @@ td {
   cursor: pointer;
 }
 
+/* Accept Button */ 
 .accept-btn {
-  background-color: #4CAF50; /* Green for accept */
+  background: linear-gradient(to bottom, #4ede39 0%, #2ba321 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
   color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
   margin-right: 10px;
 }
 
-.accept-btn:hover {
-  background-color: #45a049;
+/* Subtle gloss with matching radius */
+.accept-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+  border-top-left-radius: 4px;  /* match reduced radius */
+  border-top-right-radius: 4px; /* match reduced radius */
+  z-index: 1;
 }
 
+/* Text above shine */
+.accept-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.accept-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Cancel Button */
 .cancel-btn {
-  background-color: #f44336; /* Red for cancel */
+  background: linear-gradient(to bottom, #ff5f5f 0%, #d62828 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
   color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+}
+
+/* Gloss shine */
+.cancel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  z-index: 1;
+}
+
+/* Text above shine */
+.cancel-btn span {
+  position: relative;
+  z-index: 2;
 }
 
 .cancel-btn:hover {
-  background-color: #e53935;
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 

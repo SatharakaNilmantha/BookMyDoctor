@@ -88,6 +88,17 @@ table {
   td {
     color: #333; 
   }
+
+
+/* Button styling */
+.accept-btn,.cancel-btn{
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
   
 /* Accept Button */ 
 .accept-btn {
@@ -103,6 +114,7 @@ table {
   text-transform: uppercase;
   transition: 0.3s ease-in-out;
   z-index: 0;
+  margin-right: 10px;
 }
 
 /* Subtle gloss with matching radius */
