@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Blob;
+import java.time.LocalTime;
 
 
 @Data
@@ -43,6 +44,22 @@ public class Doctor {
 
     @Column(nullable = false)
     private double fees;
+
+
+    @Column(name = "shift_start_time", nullable = false)
+    private String shiftStartTime;
+
+    @Column(name = "shift_end_time", nullable = false)
+    private String shiftEndTime;
+
+    @Column(name = "weekend_start_time", nullable = false)
+    private String weekendStartTime;
+
+    @Column(name = "weekend_end_time", nullable = false)
+    private String weekendEndTime;
+
+    @Column(nullable = false)
+    private String status;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

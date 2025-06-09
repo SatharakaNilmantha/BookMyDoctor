@@ -38,7 +38,6 @@ public class DoctorController {
 
             String result = doctorServices.savedDoctor(doctorDto, image);
             return new ResponseEntity<>(result, HttpStatus.CREATED);
-
         } catch (DuplicateException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         } catch (Exception e) {

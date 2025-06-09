@@ -15,9 +15,16 @@ public class DoctorDto {
     private String description;
     private double fees;
     private String fullName;
-    private String gender; // Kept as String to allow flexibility in DTO
-    private byte[] image; // Include image if necessary for the front-end
+    private String gender;
+    private byte[] image;
     private String phoneNumber;
     private String title;
-}
 
+    private String shiftStartTime;
+    private String shiftEndTime;
+    private String weekendStartTime;
+    private String weekendEndTime;
+    private String status;
+
+
+}
