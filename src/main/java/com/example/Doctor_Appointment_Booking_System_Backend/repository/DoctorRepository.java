@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
@@ -19,14 +18,14 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE doctor SET full_name = ?2, address = ?3, gender = ?4, phone_number = ?5, degree = ?6, department = ?7, title = ?8, description = ?9, fees = ?10 WHERE doctor_id = ?1", nativeQuery = true)
-    int updateDoctorById(long doctorId, String fullName, String address, String gender, String phoneNumber, String degree, String department, String title, String description, double fees);
+    @Query(value = "UPDATE doctor SET full_name = ?2, address = ?3, gender = ?4, phone_number = ?5, degree = ?6, department = ?7, title = ?8, description = ?9, fees = ?10, shift_start_time = ?11, shift_end_time = ?12, weekend_start_time = ?13, weekend_end_time = ?14, status = ?15 WHERE doctor_id = ?1", nativeQuery = true)
+    int updateDoctorById(long doctorId, String fullName, String address, String gender, String phoneNumber, String degree, String department, String title, String description, double fees, String shiftStartTime, String shiftEndTime, String weekendStartTime, String weekendEndTime, String status);
+
 
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM doctor WHERE doctor_id=?1", nativeQuery = true)
     int deleteDoctorById(long doctorId);
-
 
 }

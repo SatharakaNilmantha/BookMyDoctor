@@ -1,5 +1,6 @@
 package com.example.Doctor_Appointment_Booking_System_Backend.service.serviceIMPL;
 
+import com.example.Doctor_Appointment_Booking_System_Backend.Exception.DuplicateException;
 import com.example.Doctor_Appointment_Booking_System_Backend.Exception.NotFoundException;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.AdminDto;
 import com.example.Doctor_Appointment_Booking_System_Backend.dto.DoctorDto;
@@ -40,7 +41,7 @@ public class DoctorService implements DoctorServices {
             );
 
             if (exists) {
-                return "Doctor with the same details already exists.";
+                throw new DuplicateException("Doctor with the same details already exists.");
             }
 
             // Map DTO to entity
@@ -53,7 +54,7 @@ public class DoctorService implements DoctorServices {
                     Blob imageBlob = new SerialBlob(image.getBytes());
                     doctor.setImage(imageBlob);
                 } catch (Exception e) {
-                    return "Failed to process image: " + e.getMessage();
+                    throw new RuntimeException("Failed to process image: " + e.getMessage());
                 }
             }
 
@@ -61,9 +62,10 @@ public class DoctorService implements DoctorServices {
             return "Doctor saved successfully";
 
         } catch (Exception e) {
-            return "An error occurred while saving the doctor: " + e.getMessage();
+            throw new RuntimeException("An error occurred while saving the doctor: " + e.getMessage(), e);
         }
     }
+
 
     public List<DoctorDto> AllDoctor(){
         List doctorList = doctorRepository.findAll();
@@ -172,7 +174,12 @@ public class DoctorService implements DoctorServices {
                 doctorDto.getDepartment(),
                 doctorDto.getTitle(),
                 doctorDto.getDescription(),
-                doctorDto.getFees()
+                doctorDto.getFees(),
+                doctorDto.getShiftStartTime(),
+                doctorDto.getShiftEndTime(),
+                doctorDto.getWeekendStartTime(),
+                doctorDto.getWeekendEndTime(),
+                doctorDto.getStatus()
         );
 
         // Check if any rows were updated
