@@ -36,7 +36,7 @@
 .profile-header-card,.profile-details-card {
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0.1px 1px 8px rgba(0, 0, 0, 0.286);
+    box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54);
     padding: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -67,7 +67,7 @@
 }
 
 .upload-btn {
-    background-color: #0078d4;
+    background: linear-gradient(45deg, #003a79, #007BFF);
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -77,9 +77,10 @@
 }
 
 .upload-btn:hover {
-    background-color: #005a9e;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    transform: scale(1.04);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
-
 .upload-btn input {
     display: none;
 }
@@ -129,7 +130,7 @@
 
   /* Accept Button */
   .submitlink {
-    background-color: #4caf50; 
+    background: linear-gradient(45deg, #007d1f, #00d320);
     color: white;
     padding: 8px 12px;
     text-align: center; 
@@ -137,11 +138,18 @@
     cursor: pointer;
     font-weight: bold;
     border-radius: 4px;
+    transition: 0.3s ease-in-out;
+
   }
   
   .submitlink:hover {
-    background-color: #45a049;
+    background: linear-gradient(45deg, #00d320, #007d1f);
+    transform: scale(1.0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
   }
+
+
+  
 
 
   /*----------------------animation--------------------------*/

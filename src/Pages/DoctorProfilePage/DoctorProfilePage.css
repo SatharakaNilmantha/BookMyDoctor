@@ -40,17 +40,20 @@
 }
 
 .upload-btn {
-    background-color: #0078d4;
+    background: linear-gradient(45deg, #003a79, #007BFF);
     color: #fff;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    transition: 0.3s ease-in-out;
 }
 
 .upload-btn:hover {
-    background-color: #005a9e;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    transform: scale(1.0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 .upload-btn input {
@@ -106,21 +109,28 @@
 }
 
 .edit-link {
-    background-color: #0078d4;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
     color: white;
+    transition: 0.3s ease-in-out;
 }
 
 .edit-link:hover {
-    background-color: #005a9e;
+    background: linear-gradient(45deg, #003a79, #007BFF);
+    transform: scale(1.0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 .save-link {
-    background-color: #28a745;
+    background: linear-gradient(45deg, #00d320, #007d1f);
     color: white;
+    transition: 0.3s ease-in-out;
+
 }
 
 .save-link:hover {
-    background-color: #218838;
+     background: linear-gradient(45deg, #007d1f, #00d320);
+    transform: scale(1.0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* Style for the back button */

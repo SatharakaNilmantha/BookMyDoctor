@@ -64,9 +64,10 @@
 }
 
 .sidebar-link:hover {
-  background-color: #f1f9ff;
+  background: linear-gradient(45deg, #e0f2fe, #f0f9ff) !important; /* soft blue gradient for body */
+  color: #007bff;/* dark blue text for readability */
   border-left: 5px solid #007bff;
-  color: #007bff;
+  
 }
 
 .sidebar-icon {
@@ -82,12 +83,13 @@
 
 .sidebar-link.active {
   border-right: 2px solid #007bff;
-  color: #007bff;
-  background-color: #f1f9ff;
+  background: linear-gradient(45deg, #e0f2fe, #f0f9ff) !important; /* soft blue gradient for body */
+  color: #1e3a8a; /* dark blue text for readability */
 }
 
+
 .sidebar-link.active .sidebar-icon {
-  color: #007bff;
+  color: #1e3a8a;
 }
 
 .sidebar-profile {

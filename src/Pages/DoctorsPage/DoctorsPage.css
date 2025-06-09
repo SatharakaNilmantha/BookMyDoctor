@@ -29,24 +29,28 @@
     color: #2c4964;
     font-weight: 600;
     margin-top: 20px;
-    animation: scale-up 0.5s ease-in-out;
+    background: transparent;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 10px 20px;
 }
 
+/* Active Tab */
 .nav-tabs .nav-link.active {
-    background-color: #0074cc; /* Active tab background */
-    color: white; /* Active tab text color */
+    background: linear-gradient(to right, #0585e1, #9dcdf1);
+    color: white;
 }
 
+/* Hover State */
 .nav-tabs .nav-link:hover {
-    background-color: #0074cc2e; /* Background on hover */
-    color: #2c4964; /* Text color on hover */
-
+    background: linear-gradient(to right, #e0f0ff, #cfe7ff);
+    color: #2c4964;
 }
 
 /* Cards Styling */
-.cards1 {
+.doctors-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns * grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
     gap: 10px;
     margin-top: 50px;
     animation: scale-up 0.5s ease-in-out;
@@ -66,41 +70,43 @@
 }
 
 /* Individual Card */
-.card1 {
+.doctors-cards1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff;
     padding: 20px;
+    width: 300px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
     transition: all 0.3s ease;
 }
 
-.card1:hover {
+.doctors-cards1:hover {
     transform: scale(1.05); /* Slightly enlarge the card */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+      box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54); /* Stronger shadow on hover */
 }
 
 /* Image inside Card */
-.card1 .image {
+.doctors-cards .image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
     border: 3px solid #007bff;
+
 }
 
 /* Card Title and Description */
-.card1 .title {
+.doctors-cards .title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 15px;
     color: #333;
 }
 
-.card1 .description {
+.doctors-cards .description {
     font-size: 1rem;
     color: #555;
     margin-top: 10px;
@@ -134,18 +140,32 @@
     padding: 12px;
     width: 180px;
     text-align: center;
-    background-color: #265071;
+    background: linear-gradient(45deg, #003a79, #007BFF);
     color: white;
     font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.247);
+    transform: scale(1.04);
+ 
 }
 
 .book-button1:hover {
-    background-color: #007bff;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
 }
+
+
+/* Text above shine */
+.accept-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
