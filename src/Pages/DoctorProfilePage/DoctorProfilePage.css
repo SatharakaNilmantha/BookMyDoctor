@@ -7,7 +7,7 @@
 }
 
 .profile-header-card,.profile-details-card {
-    background-color: #ffffff;
+    background: linear-gradient(to right, #eef0fa, #ffffff);
     border-radius: 8px;
     box-shadow: 0.1px 1px 8px rgba(0, 0, 0, 0.286);
     padding: 20px;
@@ -91,6 +91,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+    background: linear-gradient(to right, #eef0fa, #ffffff);
+
 }
 
 .action-links {
@@ -141,7 +143,7 @@
     font-weight: 800;
     cursor: pointer;
     text-decoration: underline;
-    background-color:white ;
+    background: linear-gradient(to right, #eff1fa, #f6f7fd);
     text-align: left;
 }
 

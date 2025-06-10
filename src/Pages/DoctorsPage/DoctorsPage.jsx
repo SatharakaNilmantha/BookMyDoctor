@@ -1,150 +1,211 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './DoctorsPage.css'
-
-
-
+import axios from "axios";
+import './DoctorsPage.css';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
-
-import doctor1 from "../../images/doctors/doctors-1.jpg";
-import doctor2 from "../../images/doctors/doctors-2.jpg";
-import doctor3 from "../../images/doctors/doctors-3.jpg";
-import doctor4 from "../../images/doctors/doctors-4.jpg";
-import doctor5 from "../../images/doctors/doctors-5.jpg";
-import doctor6 from "../../images/doctors/doctors-6.jpg";
 import SideNav from '../../Components/SideNav/SideNav';
+import PopupMessage from "../../Components/PopupMessage/popupMessage";
 
 function DoctorsPage() {
- 
-    const Doctors = [
-        {
-          eventKey: "Dental",
-          Name: "Walter White",
-          title: "Chief Medical Officer",
-          description: "Qui laudantium consequatur laborum sit qui ad sapiente dila parde ",
-          imgSrc:doctor1
-        },
-        {
-          eventKey: "Cardialogy",
-          Name:"Sarah Jhonson",
-          title: "Cardialogy",
-          description: "Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. ",
-          imgSrc: doctor2
-        },
-        {
-          eventKey: "Neurology",
-          Name:"William Anderson",
-          title :"Neurology" ,
-          description: "Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt.",
-          imgSrc: doctor3
-        },
-        {
-          eventKey: "Pediatrics",
-          Name:"Amanda Jepson",
-          title: "Pediatrics",
-          description: "Description for Pediatrics goes here  Odio similique illum id quidem non enim fuga",
-          imgSrc: doctor4
-        },
-        {
-          eventKey:  "Neurology" ,  
-          Name:"HarissonThomasn",
-          title: "Neurology" ,
-          description: "Description for Eye Care goes here  Odio similique illum id quidem non enim fuga",
-          imgSrc: doctor5
-        },
 
-        {
-            eventKey:  "Pediatrics",  
-            Name:"HarissonThomas",
-            title:  "Pediatrics",
-            description: "Description for Eye Care goes here  Odio similique illum id quidem non enim fuga",
-            imgSrc: doctor6
-          },
+  const [doctors, setDoctors] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  const [activeCards, setActiveCards] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
+  const [toast, setToast] = useState({ type: '', message: '' });
 
-        ];
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/doctors/getDoctor")
+      .then(res => {
+        const fetchedDoctors = res.data;
+        setDoctors(fetchedDoctors);
 
-        function handleClick() {
-          window.scrollTo({
-            top: 0, // Scroll to the top
-          });
-        }
+        // Initialize activeCards state based on doctor.status
+        const initialActiveState = {};
+        fetchedDoctors.forEach(doctor => {
+          initialActiveState[doctor.doctorId] = doctor.status === "Active";
+        });
+        setActiveCards(initialActiveState);
+
+        // Extract unique departments
+        const uniqueDepartments = [...new Set(fetchedDoctors.map(doc => doc.department))];
+        setDepartments(uniqueDepartments);
+      })
+      .catch(err => {
+        console.error("Failed to fetch doctors", err);
+      });
+  }, []);
+
+  function handleClick() {
+    window.scrollTo({ top: 0 });
+  }
+
+  const handleDeleteDoctor = async (doctorId) => {
+
+    // Always show a message when clicked
+    setToast({ type: "", message: "hiddnne poup message ..." });
+
+  const confirmed = window.confirm("Are you sure you want to delete this doctor profile?");
+  if (!confirmed) return;
+
+  try {
+    await axios.delete(`http://localhost:8080/api/doctors/${doctorId}`);
+
+    // Remove doctor from state so UI updates instantly
+    setDoctors(prevDoctors => prevDoctors.filter(doc => doc.doctorId !== doctorId));
+
+    // Also update activeCards state (remove the doctor entry)
+    setActiveCards(prev => {
+      const copy = { ...prev };
+      delete copy[doctorId];
+      return copy;
+    });
+     setToast({ type: "success", message: "Doctor profile deleted successfully." });
+  } catch (error) {
+    console.error("Failed to delete doctor profile", error);
+    setToast({ type: "error", message: "Failed to delete doctor profile." });
+  }
+};
+
+
+
+  const toggleCard = async (doctorId) => {
+    const currentStatus = activeCards[doctorId];
+    const newStatus = !currentStatus;
+
+    const confirmUpdate = window.confirm(
+      `Are you sure you want to set the doctor as ${newStatus ? "Active" : "Inactive"}?`
+    );
+
+    if (!confirmUpdate) return;
+
+    try {
+      // Find doctor and create updated object with new status
+      const doctorToUpdate = doctors.find(doc => doc.doctorId === doctorId);
+      if (!doctorToUpdate) throw new Error("Doctor not found");
+
+      const updatedDoctor = {
+        ...doctorToUpdate,
+        status: newStatus ? "Active" : "Inactive"
+      };
+
+      // Send update to backend
+      await axios.put(`http://localhost:8080/api/doctors/${doctorId}`, updatedDoctor);
+
+      // Update activeCards state
+      setActiveCards(prev => ({
+        ...prev,
+        [doctorId]: newStatus
+      }));
+
+      // Update doctors array state so it matches new status
+      setDoctors(prevDoctors =>
+        prevDoctors.map(doc =>
+          doc.doctorId === doctorId ? updatedDoctor : doc
+        )
+      );
+
+      alert(`Doctor status updated to ${newStatus ? "Active" : "Inactive"}`);
+    } catch (err) {
+      console.error("Failed to update doctor status", err);
+      alert("Failed to update doctor status.");
+    }
+  };
+
+
+  // Filter doctors based on search query (by name or title)
+  const filteredDoctors = doctors.filter((doctor) =>
+    doctor.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    doctor.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
 
   return (
-    <>
-       <div className="app-container1">
-         <SideNav/>
-        <div className="content1">
-         <div>
-          <h1 className="dashboard-title">Welcome to Doctor Appointment System</h1>
-          <p className="dashboard-description">
-            Manage your appointments, doctors, and patients seamlessly.
-          </p>
+   <>
+    <div className="app-container1">
+      <SideNav />
+      <div className="content1">
+        <p className="dashboardDescription">
+          Efficiently manage doctor profiles and their availability status (Active/Inactive) with ease.
+        </p>
 
-            {/*--------------------------------------card section -------------------------------------------------*/ }
-         <div >
-            <Tabs defaultActiveKey="All_Department" id="fill-tab-example"  fill>
-            <Tab eventKey="All_Department" title="All Department">
-                <Row xs={1} md={2} className="doctors-cards">
-                {Doctors.map((doctor) => (
-                    <Col key={doctor.Name} >
-                    <Card className="doctors-cards1">
-                        <Card.Img src={doctor.imgSrc} className="image" />
-                        <Card.Body style={{ textAlign: "left" }}>
-                        <h4 style={{ margin: "0px",padding:"0px" ,fontWeight: 800 ,color: "#2c4964" }}>{doctor.Name}</h4>
-                        <p style={{ margin: "0px" ,padding:"0px",color: "#444444",fontWeight: 600 }}>{doctor.title}</p>
-                        <hr style={{ width:"50px"}} /> 
-                        <p style={{color: "#444444" }}>{doctor.description}</p>
-                        <div className='iconpart'>
-                            <span><Link to="/doctorprofile" className="book-button1" onClick={handleClick}>View Details</Link></span>
-                        </div>
-                        </Card.Body>
-                    </Card>
-                    <br />
-                    </Col>
-                ))}
-                </Row>
-            </Tab>
+        {/* Search bar */}
+        <div className="searchbar" controlId="searchDoctor">
+          <input type="text" placeholder="Search by doctor name or title..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+        </div>
 
-            {["Dental", "Cardialogy", "Neurology", "Pediatrics"].map((department) => (
+
+
+        <Tabs defaultActiveKey="All_Department" id="fill-tab-example" fill>
+
+          {/* get all doctor list  */}
+          <Tab eventKey="All_Department" title="All Department">
+            <Row xs={1} md={2} className="doctors-cards">
+              {filteredDoctors.map((doctor) => (
+                <Col key={doctor.doctorId}>
+                  <Card className="doctors-cards1" style={{ position: 'relative' }}>
+                    <Button className={`doctor-card-button ${activeCards[doctor.doctorId] ? 'success' : 'secondary'}`} onClick={() => toggleCard(doctor.doctorId)} > {activeCards[doctor.doctorId] ? '✓' : '✗'} </Button>
+                    <Card.Img src={`http://localhost:8080/api/doctors/image/${doctor.doctorId}`} className="image" alt={doctor.fullName}/>
+                    <Card.Body style={{ textAlign: "left" }}>
+                      <h4 style={{ margin: 0, padding: 0, fontWeight: 800, color: "#2c4964", fontSize: "150%" }}> {doctor.fullName} </h4>
+                      <p style={{ margin: 0, padding: 0, color: "#444444", fontWeight: 600 }}> {doctor.title}</p>
+                      <hr style={{ width: "50px" }} />
+                      <p style={{ color: "#444444" }}>{doctor.description}</p>
+                      <div className='btnpart'>
+                        <span><Link to={`/doctorprofile/${doctor.doctorId}`} className="view-button" onClick={handleClick}>View Details</Link></span>
+                        <span> <Link className="delete-button" onClick={() => handleDeleteDoctor(doctor.doctorId)}> Delete Profile</Link></span>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                  <br />
+                </Col>
+              ))}
+            </Row>
+          </Tab>
+
+         {/* filter the doctor wuith department */}
+          {departments.map((department) => (
             <Tab key={department} eventKey={department} title={department}>
-                <Row xs={1} md={2} className="doctors-cards">
-                    {Doctors.filter((doctor) => doctor.eventKey === department).map((doctor) => (
-                    <Col key={doctor.Name}>
-                        <Card className="doctors-cards1">
-                        <Card.Img src={doctor.imgSrc} className="image" />
+              <Row xs={1} md={2} className="doctors-cards">
+                {filteredDoctors
+                  .filter((doctor) => doctor.department === department)
+                  .map((doctor) => (
+                    <Col key={doctor.doctorId}>
+                      <Card className="doctors-cards1" style={{ position: 'relative' }}>
+                        <Button className={`doctor-card-button ${activeCards[doctor.doctorId] ? 'success' : 'secondary'}`}  onClick={() => toggleCard(doctor.doctorId)} >  {activeCards[doctor.doctorId] ? '✓' : '✗'} </Button>
+                        <Card.Img src={`http://localhost:8080/api/doctors/image/${doctor.doctorId}`} className="image" alt={doctor.fullName} />
                         <Card.Body style={{ textAlign: "left" }}>
-                        <h4 style={{ margin: "0px",padding:"0px" ,fontWeight: 800 ,color: "#2c4964" }}>{doctor.Name}</h4>
-                        <p style={{ margin: "0px" ,padding:"0px",color: "#444444",fontWeight: 600  }}>{doctor.title}</p>
-                        <hr style={{ width:"50px"}} /> 
-                        <p style={{color: "#444444" }}>{doctor.description}</p>
-
-                        <div className='iconpart'>
-                            <span><Link to="/doctorprofile" className="book-button1">View Details</Link></span>
-                        </div>
+                          <h4 style={{ margin: 0, padding: 0, fontWeight: 800, color: "#2c4964" }}> {doctor.fullName} </h4>
+                          <p style={{ margin: 0, padding: 0, color: "#444444", fontWeight: 600 }}>{doctor.title} </p>
+                          <hr style={{ width: "50px" }} />
+                          <p style={{ color: "#444444" }}>{doctor.description}</p>
+                          <div className='btnpart'>
+                           <span><Link to={`/doctorprofile/${doctor.doctorId}`} className="view-button" onClick={handleClick}>View Details</Link></span>
+                           <span> <Link className="delete-button" onClick={() => handleDeleteDoctor(doctor.doctorId)}> Delete Profile</Link></span>
+                          </div>
                         </Card.Body>
-                        </Card>
-                        <br />
+                      </Card>
+                      <br />
                     </Col>
-                    ))}
-                </Row>
+                  ))}
+              </Row>
             </Tab>
-            ))}
+          ))}
 
-            </Tabs>
-        </div>
- 
-        </div>
-        </div>
+        </Tabs>
       </div>
-    </>
-  )
+    </div>
+     {/* Toast Message */}
+     <PopupMessage type={toast.type} message={toast.message} />
+   </>
+  );
 }
 
-export default DoctorsPage
+export default DoctorsPage;

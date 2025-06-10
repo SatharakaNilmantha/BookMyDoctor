@@ -36,7 +36,7 @@
 }
 
 .profile-header-card,.profile-details-card {
-    background-color: #ffffff;
+    background: linear-gradient(to right, #eef0fa, #ffffff);
     border-radius: 8px;
      box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54);
     padding: 20px;
@@ -120,6 +120,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+    background: linear-gradient(to right, #eef0fa, #ffffff);
+
 }
 
 .actionlinks {

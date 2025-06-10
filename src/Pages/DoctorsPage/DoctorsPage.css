@@ -10,12 +10,17 @@
     flex-grow: 1;
     margin-left: 250px; /* Sidebar width */
     padding: 30px;
-    background-color: #f0f0f0; /* Light background */
+    background-color: #f4f4f4; /* Light background */
     color: #333; /* Text color */
     max-width: 100%;
     max-height: 100%;
 }
-
+.dashboardDescription{
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .content1 {
@@ -24,7 +29,43 @@
   
   }
 
-/* Tab Styling */
+/*------------------------------------search-bar Section------------------------------ */
+
+.searchbar{
+  margin-top: 30px;
+   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: scale-up 0.5s ease-in-out;
+}
+
+
+
+.searchbar input {
+  flex-grow: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db; /* Light gray */
+  border-radius: 8px;
+  background-color: #ffffff8f;
+  color: #333;
+  outline: none;
+  transition:  background-color 0.3s ease,   border-color 0.3s ease,  box-shadow 0.3s ease;
+}
+
+/* Hover */
+.searchbar input:hover {
+  background-color: #fff;
+  border-color: #46bcfca8;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+
+/*--------------------------------------------------- Tab Styling ------------------------------------------------*/
 .nav-tabs .nav-link {
     color: #2c4964;
     font-weight: 600;
@@ -74,9 +115,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #fff;
-    padding: 20px;
-    width: 300px;
+    background: linear-gradient(to right, #e7eafe, #ffffff );
+    padding: 20px 6px;
+    width: 330px;
     border-radius: 10px;
     box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
     transition: all 0.3s ease;
@@ -87,6 +128,46 @@
       box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54); /* Stronger shadow on hover */
 }
 
+
+.doctor-card-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Success state (active) */
+.doctor-card-button.success {
+  background: linear-gradient(to right, #04800a, #00ff40);
+  color: white;
+}
+
+.doctor-card-button.success:hover {
+   background: linear-gradient(to right , #00ff40, #04800a);
+}
+
+/* Secondary state (inactive) */
+.doctor-card-button.secondary {
+   background: linear-gradient(to right, #970909, #ff0404);
+  color: white;
+}
+
+.doctor-card-button.secondary:hover {
+   background: linear-gradient(to right , #ff0404 , #970909);
+}
+
+
 /* Image inside Card */
 .doctors-cards .image {
     width: 150px;
@@ -94,7 +175,8 @@
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
-    border: 3px solid #007bff;
+    background: linear-gradient( 45deg , #5772f8, #ea1717)!important;
+    padding: 2px;
 
 }
 
@@ -110,37 +192,30 @@
     font-size: 1rem;
     color: #555;
     margin-top: 10px;
+  
+ 
 }
+
+
+
 
 /* Icon and Button Area */
-.iconpart {
+.btnpart {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.iconsvg {
-    display: flex;
+    grid-template-columns: auto auto;
+    margin-top: 40px;
+    gap: 20px;
     align-items: center;
     justify-content: center;
-    background-color: #e1e1e1;
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.iconsvg:hover {
-    background-color: #007bff;
-    opacity: 0.7;
-}
 
-.book-button1 {
+
+.view-button , .delete-button{
     text-decoration: none;
     padding: 12px;
     width: 180px;
     text-align: center;
-    background: linear-gradient(45deg, #003a79, #007BFF);
     color: white;
     font-size: 16px;
     border-radius: 25px;
@@ -153,8 +228,22 @@
  
 }
 
-.book-button1:hover {
+.view-button{
+    background: linear-gradient(45deg, #003a79, #007BFF);
+}
+
+.delete-button{
+    background: linear-gradient(45deg, #830303, #ff0000 );
+}
+
+
+.view-button:hover {
     background: linear-gradient(45deg, #007BFF, #0056b3);
+}
+
+.delete-button:hover {
+    background: linear-gradient(45deg, #ff0000, #830303);
+
 }
 
 
