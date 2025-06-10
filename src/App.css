@@ -231,7 +231,7 @@ table {
 }
 
 .table-body {
-  background: linear-gradient(45deg, #e0f2fe, #f0f9ff) !important; /* soft blue gradient for body */
+  background: linear-gradient(45deg, #dce8ff, #f9fcff ,#ffffff) !important; /* soft blue gradient for body */
   color: #1e3a8a; /* dark blue text for readability */
 }
 
@@ -250,6 +250,37 @@ th {
 td {
   color: #333; 
 }
+
+.table-row{
+   display: grid;
+   grid-template-columns: 50px auto;
+   align-items: center;
+   text-align: left;
+   margin: 0px !important;
+   padding-left: 10px;
+}
+
+  .table-image{
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: #1e3a8a 1.5px solid;
+  }
+
+
+.status-token {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background: linear-gradient( 45deg, #fffbc1, #ffffff )!important;
+  color: #d5ce89;
+  border: 2px solid #e6e4c3;
+}
+
 
 
 

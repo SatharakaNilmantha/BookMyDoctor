@@ -225,11 +225,9 @@ function App() {
                   {filteredAppointments.length > 0 ? (
                     filteredAppointments.map((appointment) => (
                       <tr key={appointment.appointmentId}>
-                        <td>{appointment.doctorDetails?.fullName || "N/A"}</td>
-                        <td>{appointment.patientDetails?.fullName || "N/A"}</td>
-                        <td>
-                          {
-                            appointment.appointmentDateTime? (() => {
+                      <td ><p className='table-row'><img className='table-image' src={`http://localhost:8080/api/doctors/image/${appointment.doctorId}`} alt="" />{appointment.doctorDetails?.fullName || "N/A"}</p></td>
+                      <td ><p className='table-row'><img className='table-image' src={`http://localhost:8080/api/patient/image/${appointment.patientId}`} alt="" />{appointment.patientDetails?.fullName || "N/A"}</p></td>
+                       <td>{appointment.appointmentDateTime? (() => {
                                   const date = new Date(appointment.appointmentDateTime);
                                   const formattedDate = date.getFullYear() + "-" +
                                                         String(date.getMonth() + 1).padStart(2, '0') + "-" +
@@ -245,7 +243,7 @@ function App() {
                           }
 
                         </td>
-                        <td>{appointment.status}</td>
+                        <td><span className="status-token status-pending ">{appointment.status}</span></td>
                         <td>
                           <button
                             className="accept-btn"
