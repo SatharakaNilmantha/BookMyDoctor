@@ -61,6 +61,8 @@ public class DoctorService implements DoctorServices {
             doctorRepository.save(doctor);
             return "Doctor saved successfully";
 
+        } catch (DuplicateException e) {
+            throw e; // Re-throw to be caught by controller
         } catch (Exception e) {
             throw new RuntimeException("An error occurred while saving the doctor: " + e.getMessage(), e);
         }
