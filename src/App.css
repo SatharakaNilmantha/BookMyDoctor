@@ -123,7 +123,7 @@
     background: #00b09b;
     background: -webkit-linear-gradient( 
 45deg
- , #00b09b, #96c93d)!important;
+ , #00b09b, #abd65f)!important;
     background: linear-gradient( 
 45deg
  , #00b09b, #96c93d)!important;
@@ -162,14 +162,10 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-  padding: 10px;
-  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: scale-up 0.5s ease-in-out;
-  
-
 }
 
 
@@ -180,7 +176,7 @@
   font-size: 16px;
   border: 1px solid #d1d5db; /* Light gray */
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #ffffff8f;
   color: #333;
   outline: none;
   transition:  background-color 0.3s ease,   border-color 0.3s ease,  box-shadow 0.3s ease;
