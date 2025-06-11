@@ -125,9 +125,7 @@ public class DoctorController {
     @DeleteMapping("{doctorId}")
     public ResponseEntity<String> deleteDoctorById(@PathVariable long doctorId)
     {
-
         try {
-
             String confirmResponse = doctorServices.deleteDoctorById(doctorId);
             return ResponseEntity.ok(confirmResponse);
         } catch (NotFoundException e) {
@@ -135,14 +133,9 @@ public class DoctorController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (Exception e) {
             // Handle any other exceptions and return HTTP 500 Internal Server Error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("An unexpected error occurred: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + e.getMessage());
         }
 
     }
-
-
-
-
 
 }
