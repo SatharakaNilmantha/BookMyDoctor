@@ -86,29 +86,6 @@
  , #17ead9, #6078ea)!important;
 }
 
-.widgets-icons-2 {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ededed;
-    font-size: 37px;
-    border-radius: 10px;
-}
-
-.rounded-circle {
-    border-radius: 50%!important;
-}
-
-.text-white {
-    color: #fff!important;
-}
-
-.ms-auto {
-    margin-left: auto!important;
-}
-
 .bg-gradient-bloody {
     background: #f54ea2;
     background: -webkit-linear-gradient( 
@@ -138,6 +115,31 @@
 45deg
  , #ffdf40, #ff8359)!important;
 }
+
+
+.widgets-icons-2 {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 37px;
+    border-radius: 10px;
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.text-white {
+    color: #fff!important;
+}
+
+.ms-auto {
+    margin-left: auto!important;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
