@@ -55,7 +55,27 @@ public class NotificationService implements NotificationServices {
                     notificationId,
                     notificationDto.getText(),
                     notificationDto.getStatus(),
-                    notificationDto.getType()
+                    notificationDto.getType(),
+                    notificationDto.getDateTime()
+            );
+            // Check if any rows were updated
+            if (updatedRows > 0) {
+                return " Notification update  successfully with ID " + notificationId;
+            } else {
+                throw new RuntimeException("Failed to update Notification  with ID " + notificationId);
+            }
+        } else {
+            // If the patient does not exist, throw an exception
+            throw new RuntimeException("Patient's Notification  not found with ID " + notificationId);
+        }
+    }
+
+    public String statusUpdate(long notificationId, NotificationDto notificationDto) {
+        if (notificationRepository.existsById(notificationId)) {
+            // Perform the update using the repository method
+            int updatedRows = notificationRepository.statusUpdate(
+                    notificationId,
+                    notificationDto.getStatus()
             );
             // Check if any rows were updated
             if (updatedRows > 0) {

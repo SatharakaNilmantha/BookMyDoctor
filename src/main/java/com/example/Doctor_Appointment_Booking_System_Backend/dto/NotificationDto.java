@@ -18,4 +18,5 @@ public class NotificationDto {
     private String text;
     private String type;
     private String status;
+    private LocalDateTime dateTime;
 }
