@@ -70,15 +70,36 @@ function App() {
 
     if (window.confirm("Are you sure you want to accept this appointment?")) {
       try {
+        const appointment = appointments.find(app => app.appointmentId === appointmentId);
+        
         await axios.put(
           `http://localhost:8080/api/appointments/${appointmentId}`, 
           { status: "accepted" }
         );
+        
+        // Get current time in Sri Lanka (UTC+5:30)
+        const now = new Date();
+        const sriLankaOffset = 5.5 * 60 * 60 * 1000; // 5.5 hours in milliseconds
+        const sriLankaTime = new Date(now.getTime() + sriLankaOffset);
+        
+        const notificationDto = {
+          patientId: appointment.patientId,
+          doctorId: appointment.doctorId,
+          appointmentDateTime: appointment.appointmentDateTime,
+          text: "Appointment confirmed! Your consultation with the doctor is scheduled as planned.",
+          type: "accepted",
+          status: "unread",
+          dateTime: sriLankaTime.toISOString() // Sri Lankan time in ISO format
+        };
+        
+        await axios.post("http://localhost:8080/api/notification/saveNotification", notificationDto);
+        
         setAppointments(appointments.filter(app => app.appointmentId !== appointmentId));
         setPendingCount(prev => prev - 1);
         setAcceptedCount(prev => prev + 1);
         setPopup({ type: "success", message: "Patient Appointment Accepted" });
-      } catch {
+      } catch (error) {
+        console.error("Error accepting appointment:", error);
         setPopup({ type: "error", message: "Failed to update appointment." });
       }
     }
@@ -89,15 +110,36 @@ function App() {
 
     if (window.confirm("Are you sure you want to cancel this appointment?")) {
       try {
+        const appointment = appointments.find(app => app.appointmentId === appointmentId);
+        
         await axios.put(
           `http://localhost:8080/api/appointments/${appointmentId}`, 
           { status: "canceled" }
         );
+        
+        // Get current time in Sri Lanka (UTC+5:30)
+        const now = new Date();
+        const sriLankaOffset = 5.5 * 60 * 60 * 1000; // 5.5 hours in milliseconds
+        const sriLankaTime = new Date(now.getTime() + sriLankaOffset);
+        
+        const notificationDto = {
+          patientId: appointment.patientId,
+          doctorId: appointment.doctorId,
+          appointmentDateTime: appointment.appointmentDateTime,
+          text: "Doctor is unavailable due to emergency schedule conflict",
+          type: "rejected",
+          status: "unread",
+          dateTime: sriLankaTime.toISOString() // Sri Lankan time in ISO format
+        };
+        
+        await axios.post("http://localhost:8080/api/notification/saveNotification", notificationDto);
+        
         setAppointments(appointments.filter(app => app.appointmentId !== appointmentId));
         setPendingCount(prev => prev - 1);
         setCanceledCount(prev => prev + 1);
         setPopup({ type: "success", message:"Patient Appointment Canceled" });
-      } catch {
+      } catch (error) {
+        console.error("Error canceling appointment:", error);
         setPopup({ type: "error", message: "Failed to update appointment." });
       }
     }
