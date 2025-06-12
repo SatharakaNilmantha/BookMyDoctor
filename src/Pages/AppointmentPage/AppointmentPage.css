@@ -226,7 +226,7 @@ table {
 
 
 /* Button styling */
-.accept-btn,.cancel-btn{
+.view-btn,.cancel-btn{
   padding: 8px 12px;
   font-size: 14px;
   border-radius: 4px;
@@ -235,9 +235,10 @@ table {
 }
 
   
-/* Accept Button */ 
-.accept-btn {
-  background: linear-gradient(to bottom, #4ede39 0%, #2ba321 100%);
+/* View Button */ 
+.view-btn {
+
+  background: linear-gradient(to bottom, #4c6be6 0%, #283fd6 100%);
   position: relative;
   border-radius: 4px; /* consistent with accept button */
   color: white;
@@ -253,7 +254,7 @@ table {
 }
 
 /* Subtle gloss with matching radius */
-.accept-btn::before {
+.view-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -267,12 +268,12 @@ table {
 }
 
 /* Text above shine */
-.accept-btn span {
+.view-btn span {
   position: relative;
   z-index: 2;
 }
 
-.accept-btn:hover {
+.view-btn:hover {
   transform: scale(1.04);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
@@ -319,3 +320,41 @@ table {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
+
+/* Modal Content Styles */
+
+
+.card{
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    animation: scale-up 0.5s ease-in-out !important;
+     background-color: #ffffff !important;
+}
+.card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54) !important;
+}
+
+.doctor-head{
+     background: linear-gradient( 
+45deg
+ , #17ead9, #6078ea)!important;
+}
+
+.patient-head{
+       background: linear-gradient( 
+45deg
+ , #ad4ef5, #ff7676)!important;
+}
+
+.appointment-head{
+   background: linear-gradient( 
+45deg
+ , #00b09b, #96c93d)!important;
+}
+
+.status-head{
+    background: linear-gradient( 
+45deg
+ , #ffdf40, #ff8359)!important;
+}

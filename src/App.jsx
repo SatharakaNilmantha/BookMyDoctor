@@ -126,7 +126,7 @@ function App() {
           patientId: appointment.patientId,
           doctorId: appointment.doctorId,
           appointmentDateTime: appointment.appointmentDateTime,
-          text: "Doctor is unavailable due to emergency schedule conflict",
+          text: "Doctor is unavailable due to emergency schedule conflict. Your appointment has been canceled.",
           type: "rejected",
           status: "unread",
           dateTime: sriLankaTime.toISOString() // Sri Lankan time in ISO format
@@ -287,18 +287,8 @@ function App() {
                         </td>
                         <td><span className="status-token status-pending ">{appointment.status}</span></td>
                         <td>
-                          <button
-                            className="accept-btn"
-                            onClick={() => handleAccept(appointment.appointmentId)}
-                          >
-                            Accept
-                          </button>
-                          <button
-                            className="cancel-btn"
-                            onClick={() => handleCancel(appointment.appointmentId)}
-                          >
-                            Cancel
-                          </button>
+                          <button className="accept-btn" onClick={() => handleAccept(appointment.appointmentId)}> Accept</button>
+                          <button className="cancel-btn" onClick={() => handleCancel(appointment.appointmentId)}> Cancel</button>
                         </td>
                       </tr>
                     ))
