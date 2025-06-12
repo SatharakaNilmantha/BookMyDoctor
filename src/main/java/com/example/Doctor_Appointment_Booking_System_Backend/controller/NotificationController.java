@@ -62,10 +62,23 @@ public class NotificationController {
         }
     }
 
+
     @PutMapping("/{notificationId}")
     public ResponseEntity<String> updateNotification(@PathVariable long notificationId, @RequestBody NotificationDto notificationDto) {
         try {
             String updateResponse = notificationServices.updateNotification(notificationId, notificationDto);
+            return ResponseEntity.ok(updateResponse);
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update notification: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("/statusUpdate/{notificationId}")
+    public ResponseEntity<String> statusUpdate(@PathVariable long notificationId, @RequestBody NotificationDto notificationDto) {
+        try {
+            String updateResponse = notificationServices.statusUpdate(notificationId, notificationDto);
             return ResponseEntity.ok(updateResponse);
         } catch (NotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());

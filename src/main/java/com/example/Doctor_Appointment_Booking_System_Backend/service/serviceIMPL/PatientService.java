@@ -207,11 +207,11 @@ public class PatientService implements PatientServices {
         Patient patient = patientRepository.findByEmail(email);
 
         if (patient == null) {
-            throw new NotFoundException("No patient found with this email.");
+            throw new NotFoundException("The email address you entered is not registered. Please check your email or sign up for an account.");
         }
 
         if (!patient.getPassword().equals(password)) {
-            throw new IllegalArgumentException("Incorrect password.");
+            throw new IllegalArgumentException("The password you entered is incorrect. Please try again");
         }
 
         // Constructing JSON manually as a string

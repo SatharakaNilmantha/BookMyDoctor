@@ -13,5 +13,9 @@ public interface NotificationServices {
 
     public  String updateNotification(long notificationId, NotificationDto notificationDto);
 
+    String statusUpdate(long notificationId, NotificationDto notificationDto);
+
     public  String deleteNotificationById(long notificationId);
+
+
 }
