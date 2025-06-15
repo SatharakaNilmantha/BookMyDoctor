@@ -10,6 +10,7 @@ import DoctorProfile from './Pages/DoctorProfilePage/DoctorProfilePage.jsx';
 import AddDoctor from './Pages/AddDoctorPage/AddDoctorPage.jsx';
 import RegisteredPatientPage from './Pages/RegisteredPatientPage/RegisteredPatientPage.jsx';
 import ProfilPage from './Pages/ProfilePage/ProfilPage.jsx';
+import PatientContactPage from './Pages/PatientContactPage/PatientContactPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
     {
     path: "/profile",
     element: <div><ProfilPage/></div>,
+  },
+  {
+    path: "/contact",
+    element: <div><PatientContactPage/></div>,
   },
 ]);
 
