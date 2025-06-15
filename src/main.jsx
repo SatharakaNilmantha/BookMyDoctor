@@ -8,6 +8,7 @@ import Appointment from './Pages/AppointmentPage/AppointmentPage.jsx';
 import Doctors from './Pages/DoctorsPage/DoctorsPage.jsx';
 import DoctorProfile from './Pages/DoctorProfilePage/DoctorProfilePage.jsx';
 import AddDoctor from './Pages/AddDoctorPage/AddDoctorPage.jsx';
+import RegisteredPatientPage from './Pages/RegisteredPatientPage/RegisteredPatientPage.jsx';
 import ProfilPage from './Pages/ProfilePage/ProfilPage.jsx';
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/adddoctor",
     element: <div><AddDoctor/></div>,
+  },
+  {
+    path: "/patients",
+    element: <div><RegisteredPatientPage/></div>,
   },
     {
     path: "/profile",

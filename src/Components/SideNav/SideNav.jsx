@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faCalendarCheck, faUserMd, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faCalendarCheck, faUserMd,faUserInjured ,faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
@@ -80,6 +80,12 @@ function SideNav() {
           <NavLink to="/adddoctor" className="sidebar-link" onClick={handleClick} activeClassName="active">
             <IoPersonAddSharp className="sidebar-icon" />
             <span>Add Doctor</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/patients" className="sidebar-link" onClick={handleClick} activeClassName="active">
+            <FontAwesomeIcon icon={faUserInjured} className="sidebar-icon" />
+            <span>Patients</span>
           </NavLink>
         </li>
         <li>

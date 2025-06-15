@@ -24,9 +24,13 @@ function AppointmentPage() {
       const res = await axios.get('http://localhost:8080/api/appointments/getAppointments');
       const rawAppointments = res.data;
 
+      // Filter appointments
       const filteredAppointments = rawAppointments.filter(app =>
         app.status === "accepted" || app.status === "canceled"
       );
+
+      // Sort appointments by appointmentId in descending order
+      filteredAppointments.sort((a, b) => b.appointmentId - a.appointmentId);
 
       const enrichedAppointments = await Promise.all(
         filteredAppointments.map(async (appointment) => {
