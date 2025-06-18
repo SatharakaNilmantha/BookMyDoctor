@@ -4,7 +4,7 @@ import axios from "axios";
 
 import './DoctorProfilePage.css';
 
-import doctor from "../../Images/doctors/doctors-1.jpg";  // Default placeholder image
+import doctor from "../../Images/doctors/doctor.png";  // Default placeholder image
 
 import { FaAnglesLeft } from "react-icons/fa6";
 

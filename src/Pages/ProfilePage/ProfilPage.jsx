@@ -3,20 +3,15 @@ import { useNavigate } from "react-router-dom";
 import SideNav from "../../Components/SideNav/SideNav";
 
 import "./profilPage.css";
-import profileDefault from "../../Images/doctors/doctors-1.jpg";
+import profileDefault from "../../Images/logo/logo1-removebg.png";
 import { FaAnglesLeft } from "react-icons/fa6";
 
 function ProfilPage() {
   const [userData, setUserData] = useState({
     name: "Dr. Jane Smith",
-    eventKey: "Neurology",
-    title: "Consultant Neurologist",
-    degree: "MBBS, MD",
-    description: "Specialist in neurological disorders and patient care.",
-    gender: "Female",
+    gender: "Male",
     address: "456 Clinic Avenue, MedCity",
     phoneNumber: "077 1234567",
-    fees: "300",
   });
 
   const [profilePhoto, setProfilePhoto] = useState(profileDefault);
@@ -81,14 +76,9 @@ function ProfilPage() {
 
             {[
             { label: "Full Name", field: "name" },
-            { label: "Department", field: "eventKey" },
-            { label: "Title", field: "title" },
-            { label: "Degree", field: "degree" },
-            { label: "Description", field: "description", type: "textarea" },
             { label: "Gender", field: "gender", type: "select" },
             { label: "Address", field: "address", type: "textarea" },
             { label: "Phone Number", field: "phoneNumber" },
-            { label: "Fees", field: "fees" },
             ].map(({ label, field, type }) => (
             <div className="profile-row" key={field}>
                 <label className="field-label">{label}</label>
