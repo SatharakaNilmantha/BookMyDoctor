@@ -9,6 +9,7 @@ import com.example.Doctor_Appointment_Booking_System_Backend.service.PatientServ
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,6 +29,8 @@ public class PatientService implements PatientServices {
     private ModelMapper modelMapper;
 
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
 
@@ -37,6 +40,9 @@ public class PatientService implements PatientServices {
             if (patientRepository.existsByEmail(patientDto.getEmail())) {
                 throw new DuplicateException("A patient with this email already exists.");
             }
+
+            // Hash the password before saving
+            patientDto.setPassword(passwordEncoder.encode(patientDto.getPassword()));
 
             Patient patient = modelMapper.map(patientDto, Patient.class);
             patient.setGender(Patient.Gender.valueOf(patientDto.getGender()));
@@ -210,7 +216,7 @@ public class PatientService implements PatientServices {
             throw new NotFoundException("The email address you entered is not registered. Please check your email or sign up for an account.");
         }
 
-        if (!patient.getPassword().equals(password)) {
+        if (!passwordEncoder.matches(password, patient.getPassword())) {
             throw new IllegalArgumentException("The password you entered is incorrect. Please try again");
         }
 
