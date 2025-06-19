@@ -1,0 +1,360 @@
+/* App container styling */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+ 
+}
+
+/* Content section */
+.content {
+  flex-grow: 1;
+  margin-left: 250px; /* Sidebar width */
+  padding: 30px;
+  background-color: #f0f0f0; /* Light background */
+  color: #333; /* Text color */
+  max-width: 100%;
+}
+
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+      margin-left: 0; /* Full-width content for smaller screens */
+    }
+  
+  }
+
+
+/*------------------------------------search-bar Section------------------------------ */
+.search-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Single column layout */
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between elements */ 
+  width: 100%; /* Full width */
+}
+
+
+.search-bar{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: scale-up 0.5s ease-in-out;
+}
+
+
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db; /* Light gray */
+  border-radius: 8px;
+  background-color: #ffffff8f;
+  color: #333;
+  outline: none;
+  transition:  background-color 0.3s ease,   border-color 0.3s ease,  box-shadow 0.3s ease;
+}
+
+/* Hover */
+.search-bar input:hover {
+  background-color: #fff;
+  border-color: #46bcfca8;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.appointment-counts {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns:auto auto; /* Responsive grid */
+  gap: 20px; /* Space between cards */
+  align-items: center;
+  border-radius: 8px;
+}
+
+.acceptCount, .cancelCount {
+  border-radius: 50px;
+  text-align: center;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  animation: scale-up 0.5s ease-in-out;
+}
+
+/* Accepted count box with soft pastel green */
+.acceptCount {
+  background: linear-gradient( 45deg, #c8ffd3, #f7f8f7 )!important;
+  color: #035817;
+  border: 2px solid #c3e6cb;
+}
+
+.acceptCount:hover {
+  background: linear-gradient(45deg, #f7f8f7 , #c8ffd3 )!important;
+  border-color: #b7e2a3; /* lighter green on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54); 
+
+}
+
+/* Canceled count box with soft pastel red */
+.cancelCount {
+  background: linear-gradient( 45deg, #ffc8c8, #f8f7f7 )!important;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.cancelCount:hover {
+  background: linear-gradient( 45deg, #f8f7f7 , #ffc8c8)!important;
+  color: #721c24;
+  transform: translateY(-5px);
+  box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54);
+}
+
+
+
+/*------------------------------------teable Section------------------------------ */
+  .action-table1 {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scale-up 0.5s ease-in-out;
+  }
+  
+  .action-table1:hover {
+    transform: translateY(-6px);
+      box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54);
+
+  }
+  
+  
+  .action-table1 h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f0f9ff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+
+  
+.table-header {
+    background: #17ead9;
+    background: -webkit-linear-gradient( 45deg ,  #4863ea, #68daf6)!important;
+    background: linear-gradient( 45deg, #4b63db, #6fcded)!important;
+}
+
+.table-body {
+  background: linear-gradient(45deg, #dce8ff, #eff7ff ,#ffffff) !important; /* soft blue gradient for body */
+  color: #1e3a8a; /* dark blue text for readability */
+}
+
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd; 
+  }
+  
+  th {
+    color: white;
+    font-weight: bold;
+  }
+  
+  td {
+    color: #333; 
+  }
+
+.table-row{
+   display: grid;
+   grid-template-columns: 50px auto;
+   align-items: center;
+   text-align: left;
+   margin: 0px !important;
+   padding-left: 10px;
+}
+
+  .table-image{
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: #1e3a8a 1.5px solid;
+  }
+
+
+  .status-token {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-accepted {
+  background: linear-gradient( 45deg, #c8ffd3, #f7f8f7 )!important;
+  color: #035817;
+  border: 2px solid #c3e6cb;
+}
+
+.status-canceled {
+  background: linear-gradient( 45deg, #ffc8c8, #f8f7f7 )!important;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+
+/* Button styling */
+.view-btn,.cancel-btn{
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+  
+/* View Button */ 
+.view-btn {
+
+  background: linear-gradient(to bottom, #4c6be6 0%, #283fd6 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+  margin-right: 10px;
+}
+
+/* Subtle gloss with matching radius */
+.view-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+  border-top-left-radius: 4px;  /* match reduced radius */
+  border-top-right-radius: 4px; /* match reduced radius */
+  z-index: 1;
+}
+
+/* Text above shine */
+.view-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.view-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Cancel Button */
+.cancel-btn {
+  background: linear-gradient(to bottom, #ff5f5f 0%, #d62828 100%);
+  position: relative;
+  border-radius: 4px; /* consistent with accept button */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+}
+
+/* Gloss shine */
+.cancel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  z-index: 1;
+}
+
+/* Text above shine */
+.cancel-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.cancel-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Modal Content Styles */
+
+
+.card{
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    animation: scale-up 0.5s ease-in-out !important;
+     background-color: #ffffff !important;
+}
+.card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 2px 6px 0 rgba(183, 183, 246, 0.75), 0 2px 6px 0 rgba(189, 189, 233, 0.54) !important;
+}
+
+.doctor-head{
+     background: linear-gradient( 
+45deg
+ , #17ead9, #6078ea)!important;
+}
+
+.patient-head{
+       background: linear-gradient( 
+45deg
+ , #ad4ef5, #ff7676)!important;
+}
+
+.appointment-head{
+   background: linear-gradient( 
+45deg
+ , #00b09b, #96c93d)!important;
+}
+
+.status-head{
+    background: linear-gradient( 
+45deg
+ , #ffdf40, #ff8359)!important;
+}
