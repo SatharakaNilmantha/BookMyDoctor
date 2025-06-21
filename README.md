@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>A Full-Stack Smart Hospital Management System</strong><br/>
-  Digitizing hospital operations for Admins, Doctors, Patients, and Front Desk staff.
+  Digitizing hospital operations for Admins,Patients.
 </p>
 
 <p align="center">
@@ -43,15 +43,6 @@
 - Register & login
 - Book/view appointments
 - Manage personal profile
-
-### 👨‍⚕️ Doctor
-- View and manage appointments
-- Diagnose and prescribe
-
-### 🧑‍💼 Receptionist
-- View doctor information (name, department, availability)
-- Share doctor’s prescription and diagnosis with the relevant patient
-
 
 ### 🧑‍💼 Admin
 - Manage hospital staff and doctors
@@ -98,10 +89,8 @@ Smart-Hospital/
 
 <table style="width: 100%; table-layout: fixed;">
   <tr>
-    <th style="width: 25%;">Patient Interface</th>
-    <th style="width: 25%;">Admin Interface</th>
-    <th style="width: 25%;">Doctor Interface</th>
-    <th style="width: 25%;">Reception Interface</th>
+    <th style="width: 50%;">Patient Interface</th>
+    <th style="width: 50%;">Admin Interface</th>
   </tr>
   <tr>
     <td valign="top" style="text-align: center;">
@@ -116,22 +105,6 @@ Smart-Hospital/
       <img src="https://github.com/user-attachments/assets/5c3cfd01-fa6c-4dbf-81f8-ef41e18012c4" alt="Admin Interface" style="width: 100%;" />
       <p>
         <a href="https://github.com/SatharakaNilmantha/Smart-Hospital-admin-interface-.git" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
-        </a>
-      </p>
-    </td>
-    <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/03a77fa4-8101-4e1f-bf33-a0666ae6db4e" alt="Doctor Interface" style="width: 100%;" />
-      <p>
-        <a href="https://github.com/SatharakaNilmantha/Smart-Hospital-Doctor-interface.git" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
-        </a>
-      </p>
-    </td>
-    <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/c6077e59-24c8-4e33-a44f-3aea7d7789bc" alt="Reception Interface" style="width: 100%;" />
-      <p>
-        <a href="https://github.com/SatharakaNilmantha/Smart-Hospital-FrontDesk-interface.git" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
         </a>
       </p>
