@@ -94,17 +94,17 @@ Smart-Hospital/
   </tr>
   <tr>
     <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/9a0e2cd6-f78b-42cb-9524-5e0696f101e5" alt="Patient Interface" style="width: 100%;" />
+      <img src="https://github.com/user-attachments/assets/e6caf7b8-dca2-4cfd-8adf-c16c4f6a753a" alt="Patient Interface" style="width: 100%;" />
       <p>
-        <a href="https://github.com/SatharakaNilmantha/Smart-Hospital-patient-interface.git" target="_blank">
+        <a href="https://github.com/SatharakaNilmantha/DoctorAppointmentBookingSystem-Front-end-.git" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
         </a>
       </p>
     </td>
     <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/5c3cfd01-fa6c-4dbf-81f8-ef41e18012c4" alt="Admin Interface" style="width: 100%;" />
+      <img src="https://github.com/user-attachments/assets/35aa620d-f13e-403d-8037-51670cf5729c" alt="Admin Interface" style="width: 100%;" />
       <p>
-        <a href="https://github.com/SatharakaNilmantha/Smart-Hospital-admin-interface-.git" target="_blank">
+        <a href="https://github.com/SatharakaNilmantha/Doctor-Appointment-Admin-Interface-front-end-.git" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
         </a>
       </p>
