@@ -94,7 +94,7 @@ Smart-Hospital/
   </tr>
   <tr>
     <td valign="top" style="text-align: center;">
-      <img src="https://github.com/SatharakaNilmantha/Doctor-Appointment-Admin-Interface-front-end-.git" alt="Patient Interface" style="width: 100%;" />
+      <img src="https://github.com/user-attachments/assets/6fc06deb-aed0-40de-82d7-62d441cfcc3d" alt="Patient Interface" style="width: 100%;" />
       <p>
         <a href="https://github.com/SatharakaNilmantha/DoctorAppointmentBookingSystem-Front-end-.git" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
