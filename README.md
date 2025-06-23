@@ -2,7 +2,7 @@
   <img src="https://github.com/user-attachments/assets/13a58a46-8a28-43f1-89b4-d8485b21dce0" alt="HELTHHUB Logo" width="180"/>
 </p>
 
-<h1 align="center">🏥 BookMyDoctor</h1>
+<h1 align="center">🏥 BookMyDoctor Appointment Management System</h1>
 
 <p align="center">
   <strong>A Full-Stack Smart Appointment Management System</strong><br/>
