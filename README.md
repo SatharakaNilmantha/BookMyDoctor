@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/bff7ed00-b9f1-4a6c-8c7e-fbc7bae198b0" alt="HELTHHUB Logo" width="180"/>
+  <img src="https://github.com/user-attachments/assets/13a58a46-8a28-43f1-89b4-d8485b21dce0" alt="HELTHHUB Logo" width="180"/>
 </p>
 
 <h1 align="center">🏥 BookMyDoctor</h1>
 
 <p align="center">
-  <strong>A Full-Stack Smart Hospital Management System</strong><br/>
-  Digitizing hospital operations for Admins,Patients.
+  <strong>A Full-Stack Smart Appointment Management System</strong><br/>
+  Digitizing hospital operations for Admins and Patients.
 </p>
 
 <p align="center">
@@ -21,62 +21,67 @@
 
 ## 🌟 Overview
 
-**HELTHHUB MEDICAL CENTER** is a smart and scalable Hospital Management System (HMS) developed to digitize the core operations of a hospital. The platform offers a role-based interface with specialized dashboards and tools for **Admins**, **Doctors**, **Patients**, and **Receptionists (Front Desk Staff)**.
+**BOOKMYDOCTOR MEDICAL CENTER** is a smart and scalable Appointment Management System  designed and developed from scratch to digitize key hospital workflows. This full-stack solution provides a modern, role-based interface for **Admins** and **Patients**.
 
-> The application streamlines appointments, test reports, prescriptions, user authentication, and hospital staff coordination through an intuitive and responsive interface.
+> Core features include appointment scheduling, SMS-based notifications using **Twilio**, role-based dashboards, secure user authentication with **bcrypt**, profile image handling, and administrative control over hospital staff.
 
 ---
 
 ## 🎯 Objectives
 
-- Streamline daily hospital workflows digitally
-- Securely store and manage medical records
-- Provide role-based access and operations
-- Improve communication among patients and staff
-- Centralize reporting and analytics
+- Digitally streamline hospital appointments and communications
+- Empower patients with self-service access to appointments and notifications
+- Give admins full control over appointments, staff status, and system configuration
+- Use modern tools and best practices in full-stack development
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 👩‍⚕️ Patient
-- Register & login
-- Book/view appointments
-- Manage personal profile
+### 🧑‍💼 Admin Panel
+- Accept / Reject patient appointments
+- Send real-time **SMS & notifications via Twilio**
+- Activate / Deactivate doctor accounts
+- Manage patient and doctor profiles
+- Upload and manage profile images using file handling
+- View system logs and statistics
+- Secure password storage using **bcrypt**
 
-### 🧑‍💼 Admin
-- Manage hospital staff and doctors
-- View real-time statistics
-- Book & reschedule appointments
-- Monitor system logs and performance
-- Full CRUD operations for all modules
+### 👩‍⚕️ Patient Portal
+- Register and login with secure credentials
+- Book and manage appointments
+- Receive SMS and in-app notifications for appointment status
+- View own profile, notifications, and medical interaction history
 
 ---
 
 ## ⚙️ Tech Stack
 
-| Layer        | Technology         |
-|--------------|--------------------|
-| Frontend     | React.js (modular apps per role) |
-| Backend      | Spring Boot (RESTful API) |
-| Database     | MySQL (relational schema) |
-| UI/Styling   | HTML5, CSS3, Bootstrap |
-| Java Version | JDK 1.8             |
-| API Format   | JSON over HTTP      |
+| Layer        | Technology               |
+|--------------|--------------------------|
+| Frontend     | React.js (role-based apps) |
+| Backend      | Spring Boot (REST APIs)  |
+| Database     | MySQL                    |
+| Auth         | bcrypt password hashing  |
+| Messaging    | Twilio (SMS integration) |
+| File Handling| Multipart Image Uploads  |
+| Tools Used   | Postman, IntelliJ, VSCode |
+| Java Version | JDK 1.8                  |
+| Format       | JSON over HTTP           |
 
 ---
 
 ## 🗂️ Project Structure
 
+
+
 ```
 
-Smart-Hospital/
-├── Smart-Hospital-back-end/         # Spring Boot backend
-├── Smart-Hospital-front-end/
-│   ├── AdminInterface/              # Admin role React app
-│   ├── DoctorInterface/             # Doctor role React app
-│   ├── FrontDeskInterface/          # Front desk role React app
-│   └── PatientInterface/            # Patient role React app
+BookMyDoctor/
+├── BookMyDoctor_Backend/         # Spring Boot backend
+├── BookMYDoctor_Frontend/
+│   ├── admin_Interface/              # Admin role React app
+│   └── patient_Interface/            # Patient role React app
 └── README.md
 
 ````
@@ -121,13 +126,13 @@ Follow these steps to install and set up the project:
 
 ### 1️⃣ Clone the repository
    ```bash
-   git clone https://github.com/SatharakaNilmantha/HealthHub_Smart-Hospital.git
-   cd HealthHub_Smart-Hospital
+   git clone https://github.com/SatharakaNilmantha/BookMyDoctor.git
+   cd BookMyDoctor
    ```
 
 ### 2️⃣ Backend (Spring Boot)
 ```bash
-cd Smart-Hospital-back-end
+cd BookMyDoctor_Backend
 # Open in your IDE (IntelliJ/Eclipse) and run the Spring Boot application
 ````
 
@@ -136,17 +141,14 @@ cd Smart-Hospital-back-end
 Repeat for each interface:
 
 ```bash
-cd Smart-Hospital-front-end/ROLE_Interface
+cd BookMYDoctor_Frontend/ROLE_Interface
 npm install
 npm start
 ```
 
 > Replace `ROLE_Interface` with one of:
->
-> * AdminInterface
-> * DoctorInterface
-> * FrontDeskInterface
-> * PatientInterface
+> * admin_Interface
+> * patient_Interface
 
 ---
 <h2 style="text-align: center;">📚 Roles & Contributors</h2>
@@ -154,9 +156,11 @@ npm start
 
 ---
 
-## 📘 Academic Details
+## 📘 Project Background
 
-> This project was developed as part of the **Semester 06 software Engineering Web Development Project** , showcasing full-stack development and real-world system design in a healthcare domain.
+> This is a **personal full-stack project** developed independently by **Satharaka Nilmantha**, showcasing real-world system design and development in the healthcare domain.  
+> It demonstrates hands-on expertise in **Java Spring Boot**, **React.js**, **MySQL**, **Twilio**, **Postman**, **file handling**, and **bcrypt** authentication—integrated into a secure and scalable Smart Hospital Management System.
+
 
 ---
 
@@ -177,10 +181,6 @@ We welcome academic collaboration. To contribute:
 This project is licensed for **educational and academic purposes only**. Unauthorized commercial use is strictly prohibited.
 
 ---
-
-## 🙏 Acknowledgements
-
-Special thanks to our mentors and faculty for their invaluable support and guidance throughout the development of HELTHHUB Medical Center.
 
 >*Built with ❤️ for a better and smarter healthcare system.*
 >***💡 If you like this project, don't forget to give it a ⭐ on GitHub! 😊***
