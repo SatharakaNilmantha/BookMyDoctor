@@ -150,16 +150,26 @@ npm start
 > * admin_Interface
 > * patient_Interface
 
----
-<h2 style="text-align: center;">📚 Roles & Contributors</h2>
-
 
 ---
 
 ## 📘 Project Background
 
-> This is a **personal full-stack project** developed independently by **Satharaka Nilmantha**, showcasing real-world system design and development in the healthcare domain.  
-> It demonstrates hands-on expertise in **Java Spring Boot**, **React.js**, **MySQL**, **Twilio**, **Postman**, **file handling**, and **bcrypt** authentication—integrated into a secure and scalable Smart Hospital Management System.
+🛠️ **BookMyDoctor** is a full-stack appointment management system personally designed and developed by **Satharaka Nilmantha**.  
+It reflects real-world challenges in hospital operations and provides a smart digital solution built with modern technologies.
+
+🚀 The project showcases:
+- 🔐 Secure authentication using **bcrypt**
+- 📱 SMS communication with **Twilio**
+- 🧑‍⚕️ Role-based portals for **Admins** and **Patients**
+- 🖼️ File handling and profile image uploads
+- 🔧 RESTful backend using **Java Spring Boot**
+- 💻 Responsive UI built with **React.js**
+- 🗃️ MySQL database integration
+- 📦 API testing using **Postman**
+
+📚 This system is **not** part of any academic coursework – it's an **independent project** built out of passion for healthcare tech and full-stack development.
+
 
 
 ---
@@ -202,7 +212,20 @@ This project is licensed for **educational and academic purposes only**. Unautho
 
 ---
 
->*Built with ❤️ for a better and smarter healthcare system.*
->***💡 If you like this project, don't forget to give it a ⭐ on GitHub! 😊***
+## 🙏 Acknowledgements
+
+🌟 This project was built from the ground up with 💡 **self-initiative, passion, and dedication**.  
+Every line of code was written, tested, and refined by **Satharaka Nilmantha** — with no external assistance.
+
+💻 Countless hours were spent designing architecture, building the backend, crafting the UI, integrating APIs, and fine-tuning performance.
+
+🧠 Special thanks to:
+- Open-source communities for libraries, documentation, and tools
+- GitHub for providing a collaborative and open platform
+- My curiosity and love for technology ❤️
+
+> *"Built with heart, mind, and code — to make hospital appointments smarter and simpler."*
+
+> **💡 Like this project? Give it a ⭐ on GitHub and share it with others! 😊**
 
 
