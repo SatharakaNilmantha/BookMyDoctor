@@ -52,6 +52,7 @@
 - Book and manage appointments
 - Receive SMS and in-app notifications for appointment status
 - View own profile, notifications, and medical interaction history
+- Upload and manage profile images using file handling
 
 ---
 
