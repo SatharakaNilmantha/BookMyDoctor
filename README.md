@@ -21,9 +21,9 @@
 
 ## 🌟 Overview
 
-**BOOKMYDOCTOR MEDICAL CENTER** is a smart and scalable Appointment Management System  designed and developed from scratch to digitize key hospital workflows. This full-stack solution provides a modern, role-based interface for **Admins** and **Patients**.
+**BOOKMYDOCTOR MEDICAL CENTER** is a smart and scalable Appointment Management System designed and developed from scratch to digitize key hospital workflows. This full-stack solution provides a modern, role-based interface for **Admins** and **Patients**, and features an AI-powered **chatbot** to enhance the patient experience by helping them find doctor details, specialties, and booking guidance through real-time chat.
 
-> Core features include appointment scheduling, SMS-based notifications using **Twilio**, role-based dashboards, secure user authentication with **bcrypt**, profile image handling, and administrative control over hospital staff.
+> Core features include appointment scheduling, chatbot-based interaction, SMS-based notifications using **Twilio**, role-based dashboards, secure user authentication with **bcrypt**, profile image handling, and administrative control over hospital staff.
 
 ---
 
@@ -31,6 +31,7 @@
 
 - Digitally streamline hospital appointments and communications
 - Empower patients with self-service access to appointments and notifications
+- Enable real-time doctor detail discovery using chatbot interface
 - Give admins full control over appointments, staff status, and system configuration
 - Use modern tools and best practices in full-stack development
 
@@ -50,6 +51,7 @@
 ### 👩‍⚕️ Patient Portal
 - Register and login with secure credentials
 - Book and manage appointments
+- **Chat with an AI-based chatbot** to find doctor names, specialties, and available slots
 - Receive SMS and in-app notifications for appointment status
 - View own profile, notifications, and medical interaction history
 - Upload and manage profile images using file handling
@@ -58,17 +60,18 @@
 
 ## ⚙️ Tech Stack
 
-| Layer        | Technology               |
-|--------------|--------------------------|
-| Frontend     | React.js (role-based apps) |
-| Backend      | Spring Boot (REST APIs)  |
-| Database     | MySQL                    |
-| Auth         | bcrypt password hashing  |
-| Messaging    | Twilio (SMS integration) |
-| File Handling| Multipart Image Uploads  |
-| Tools Used   | Postman, IntelliJ, VSCode |
-| Java Version | JDK 1.8                  |
-| Format       | JSON over HTTP           |
+| Layer        | Technology                        |
+|--------------|-----------------------------------|
+| Frontend     | React.js (role-based apps) + Chatbot UI |
+| Backend      | Spring Boot (REST APIs)           |
+| Database     | MySQL                             |
+| Auth         | bcrypt password hashing           |
+| Messaging    | Twilio (SMS integration)          |
+| Chatbot      | React + JavaScript chatbot (custom logic) |
+| File Handling| Multipart Image Uploads           |
+| Tools Used   | Postman, IntelliJ, VSCode         |
+| Java Version | JDK 1.8                           |
+| Format       | JSON over HTTP                    |
 
 ---
 
@@ -163,6 +166,7 @@ It reflects real-world challenges in hospital operations and provides a smart di
 - 🔐 Secure authentication using **bcrypt**
 - 📱 SMS communication with **Twilio**
 - 🧑‍⚕️ Role-based portals for **Admins** and **Patients**
+- 💬 Chatbot integration for quick access to doctor details 
 - 🖼️ File handling and profile image uploads
 - 🔧 RESTful backend using **Java Spring Boot**
 - 💻 Responsive UI built with **React.js**
