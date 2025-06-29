@@ -121,6 +121,19 @@ BookMyDoctor/
   </tr>
 </table>
 
+<table style="width: 100%; table-layout: fixed;">
+  <tr>
+    <th style="width: 100%;">ChatBot Interface</th>
+  </tr>
+  <tr>
+    <td valign="top" style="text-align: center;">
+      <img src="https://github.com/user-attachments/assets/bd92197b-32a7-446e-a6a9-94c547f47148" alt="Patient Interface" style="width: 100%;" />
+    </td>
+  </tr>
+</table>
+
+
+
 
 ---
 
