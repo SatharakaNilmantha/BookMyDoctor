@@ -160,7 +160,7 @@ Repeat for each interface:
 ```bash
 cd BookMYDoctor_Frontend/ROLE_Interface
 npm install
-npm start
+npm run dev
 ```
 
 > Replace `ROLE_Interface` with one of:
