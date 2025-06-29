@@ -103,7 +103,7 @@ BookMyDoctor/
   </tr>
   <tr>
     <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/9175fa69-d760-4a73-8ce8-5b51843cb578" alt="Patient Interface" style="width: 100%;" />
+      <img src="https://github.com/user-attachments/assets/19778891-420a-4c3c-adab-372a733c068b" alt="Patient Interface" style="width: 100%;" />
       <p>
         <a align="center" href="https://github.com/SatharakaNilmantha/DoctorAppointmentBookingSystem-Front-end-.git" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-Project-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Project">
