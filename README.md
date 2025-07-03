@@ -132,6 +132,17 @@ BookMyDoctor/
   </tr>
 </table>
 
+<table style="width: 100%; table-layout: fixed;">
+  <tr>
+    <th style="width: 100%;">SMS Screenshots</th>
+  </tr>
+  <tr>
+    <td valign="top" style="text-align: center;">
+      <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763)" alt="SMS Interface" style="width: 100%;" />
+    </td>
+  </tr>
+</table>
+
 
 
 
