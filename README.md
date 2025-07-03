@@ -137,12 +137,16 @@ BookMyDoctor/
     <th style="width: 100%;">SMS Screenshots</th>
   </tr>
   <tr>
-    <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 50%;" />
-       <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 50%;" />
+    <td style="text-align: center;">
+      <div style="display: flex; justify-content: center; gap: 10px;">
+        <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 45%;" />
+        <img src="https://github.com/user-attachments/assets/3d38042f-8571-44e9-9d6e-9a3dbdf1f3a0" alt="SMS Interface" style="width: 45%;" />
+      </div>
     </td>
   </tr>
 </table>
+
+
 
 
 
