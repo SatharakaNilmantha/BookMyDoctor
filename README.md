@@ -138,7 +138,8 @@ BookMyDoctor/
   </tr>
   <tr>
     <td valign="top" style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 100%;" />
+      <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 50%;" />
+       <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface" style="width: 50%;" />
     </td>
   </tr>
 </table>
