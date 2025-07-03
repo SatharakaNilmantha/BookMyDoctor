@@ -138,9 +138,8 @@ BookMyDoctor/
   </tr>
   <tr>
     <td valign="top" style="text-align: center; vertical-align: top;">
-      <div style="display: flex; justify-content: center; align-items: flex-start; gap: 30px;">
-         <img src="https://github.com/user-attachments/assets/3d38042f-8571-44e9-9d6e-9a3dbdf1f3a0" alt="SMS Interface 2" style="width: 45%;" />
-        <img src="https://github.com/user-attachments/assets/8818c23e-e9a0-4554-b31a-36a1b8811763" alt="SMS Interface 1" style="width: 45%;" />
+      <div style="display: flex; justify-content: center; align-items: flex-start;>
+         <img src="https://github.com/user-attachments/assets/3d38042f-8571-44e9-9d6e-9a3dbdf1f3a0" alt="SMS Interface 2" style="width: 100%;" />
       </div>
     </td>
   </tr>
