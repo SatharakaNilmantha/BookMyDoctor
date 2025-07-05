@@ -18,8 +18,10 @@ function Chatbot() {
   const [isRefreshingDoctors, setIsRefreshingDoctors] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
-  const GEMINI_API_KEY = 'AIzaSyBtQ0pa0QyRAqwBbaS7ZLVhXxLcjyrJJNI';
+  // Get API configuration from environment variables
+  const GEMINI_API_URL = import.meta.env.VITE_GEMINI_API_URL;
+  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:8080';
 
   // Medical departments mapping with symptoms
   const departmentKeywords = {
@@ -75,7 +77,7 @@ function Chatbot() {
     const fetchUserImage = async () => {
       if (patientId) {
         try {
-          const response = await axios.get(`http://localhost:8080/api/patient/image/${patientId}`, {
+          const response = await axios.get(`${BACKEND_API_URL}/api/patient/image/${patientId}`, {
             responseType: 'blob'
           });
           const imageUrl = URL.createObjectURL(response.data);
@@ -94,7 +96,7 @@ function Chatbot() {
         URL.revokeObjectURL(userImage);
       }
     };
-  }, [patientId]);
+  }, [patientId, BACKEND_API_URL]);
 
   // Enhance doctor data with default values
   const enhanceDoctorData = (doctors) => {
@@ -113,7 +115,7 @@ function Chatbot() {
   const fetchDoctors = async () => {
     setIsRefreshingDoctors(true);
     try {
-      const response = await axios.get('http://localhost:8080/api/doctors/getDoctor');
+      const response = await axios.get(`${BACKEND_API_URL}/api/doctors/getDoctor`);
       const activeDoctors = enhanceDoctorData(response.data.filter(doctor => doctor.status === 'Active'));
       setDoctors(activeDoctors);
     } catch (error) {
@@ -131,7 +133,7 @@ function Chatbot() {
   // Load doctors data when component mounts
   useEffect(() => {
     fetchDoctors();
-  }, []);
+  }, [BACKEND_API_URL]);
 
   const refreshDoctors = async () => {
     setMessages(prev => [...prev, {

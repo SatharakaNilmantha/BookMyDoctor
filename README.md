@@ -181,6 +181,46 @@ npm run dev
 > * admin_Interface
 > * patient_Interface
 
+### 4️⃣ Environment Variables Setup
+
+#### For Patient Interface (Chatbot Configuration):
+
+1. Navigate to the patient interface directory:
+   ```bash
+   cd BookMYDoctor_Frontend/patient_Interface
+   ```
+
+2. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Edit the `.env` file and add your API keys:
+   ```env
+   # Chatbot API Configuration
+   VITE_GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+   VITE_GEMINI_API_KEY=your_actual_gemini_api_key_here
+   
+   # Backend API Configuration
+   VITE_BACKEND_API_URL=http://localhost:8080
+   
+   # Application Configuration
+   VITE_APP_NAME=BookMyDoctor
+   VITE_APP_VERSION=1.0.0
+   ```
+
+#### Getting Your Gemini API Key:
+
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Create a new API key
+4. Copy the API key and replace `your_actual_gemini_api_key_here` in your `.env` file
+
+#### Important Notes:
+- **Never commit your `.env` file to version control**
+- The `.env` file is already included in `.gitignore`
+- Use `.env.example` as a template for other developers
+- Restart your development server after changing environment variables
 
 ---
 
@@ -259,5 +299,3 @@ Every line of code was written, tested, and refined by **Satharaka Nilmantha** �
 > *"Built with heart, mind, and code — to make hospital appointments smarter and simpler."*
 
 > **💡 Like this project? Give it a ⭐ on GitHub and share it with others! 😊**
-
-
